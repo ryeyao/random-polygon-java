@@ -1,3 +1,4 @@
+import javafx.scene.control.RadioMenuItem;
 import shape.ExtendedPolygon;
 import shape.ExtendedPolygonBuilder;
 import shape.RectangleContainer;
@@ -14,13 +15,15 @@ import java.util.Random;
  */
 public class RandomPolygonGen {
 
-    private RectangleContainer container = new RectangleContainer();
-
-    public ExtendedPolygon randPolygon() {
+    public static ExtendedPolygon randPolygon() {
         Random rand = new Random();
         int edgeNum = rand.nextInt() % 3;
         ExtendedPolygonBuilder pgBuilder = new ExtendedPolygonBuilder();
 
         return pgBuilder.buildPolygon(edgeNum);
+    }
+
+    public static void main(String[] args) {
+        ExtendedPolygon polygon = RandomPolygonGen.randPolygon();
     }
 }

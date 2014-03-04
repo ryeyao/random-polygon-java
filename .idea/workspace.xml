@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9f49a65-7734-4833-b653-4ee738a0903d" name="Default" comment="" />
+    <list default="true" id="c9f49a65-7734-4833-b653-4ee738a0903d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RandomPolygonGen.java" afterPath="$PROJECT_DIR$/src/RandomPolygonGen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="random-polygon-java.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/PolygonGen.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393902423895" ignored="false" />
     <file path="/RandomPolygon.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393917482524" ignored="false" />
     <file path="/RectangleContainer.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393917067365" ignored="false" />
     <file path="/ExtendedPolygon.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393924171486" ignored="false" />
-    <file path="/ExtendedPolygonBuilder.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393917398206" ignored="false" />
+    <file path="/ExtendedPolygonBuilder.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393924938681" ignored="false" />
     <file path="/Vector2D.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393921760948" ignored="false" />
+    <file path="/Dummy.txt" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393924706192" ignored="false" />
+    <file path="/RandomPolygonGen.java" changelist="c9f49a65-7734-4833-b653-4ee738a0903d" time="1393924829336" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +79,7 @@
       <file leaf-file-name="CollisionDemoSoftware.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CollisionDemoSoftware.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="27" selection-start="3427" selection-end="3427" vertical-scroll-proportion="0.0">
+            <state line="120" column="0" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -85,7 +91,7 @@
       <file leaf-file-name="RandomPolygonGen.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RandomPolygonGen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="40" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0">
+            <state line="22" column="31" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,7 +102,7 @@
       <file leaf-file-name="RectangleContainer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shape/RectangleContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="28" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+            <state line="30" column="8" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#337#354#0" expanded="true" />
@@ -105,10 +111,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtendedPolygon.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ExtendedPolygon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="7" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
+            <state line="45" column="63" selection-start="1214" selection-end="1214" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,10 +133,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtendedPolygonBuilder.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ExtendedPolygonBuilder.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="25" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
+            <state line="22" column="4" selection-start="561" selection-end="561" vertical-scroll-proportion="0.42266187">
               <folding />
             </state>
           </provider>
@@ -143,6 +149,14 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -150,10 +164,10 @@
         <option value="$PROJECT_DIR$/src/CollisionDemoSoftware.java" />
         <option value="$PROJECT_DIR$/src/RandomPolygon.java" />
         <option value="$PROJECT_DIR$/src/shape/RectangleContainer.java" />
-        <option value="$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java" />
-        <option value="$PROJECT_DIR$/src/RandomPolygonGen.java" />
         <option value="$PROJECT_DIR$/src/shape/Vector2D.java" />
         <option value="$PROJECT_DIR$/src/shape/ExtendedPolygon.java" />
+        <option value="$PROJECT_DIR$/src/RandomPolygonGen.java" />
+        <option value="$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java" />
       </list>
     </option>
   </component>
@@ -163,7 +177,7 @@
     <option name="width" value="1696" />
     <option name="height" value="1026" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -251,6 +265,8 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="F:/LIBs/JavaLIB/graphics/jpct/lib/jpct/jpct.jar!/" />
@@ -260,6 +276,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Application.CollisionDemoSoftware">
@@ -513,12 +531,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CollisionDemoSoftware.java">
+    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="27" selection-start="3427" selection-end="3427" vertical-scroll-proportion="0.0">
+        <state line="45" column="63" selection-start="1214" selection-end="1214" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shape/RectangleContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="8" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#337#354#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -532,38 +559,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/CollisionDemoSoftware.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="25" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="120" column="0" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RandomPolygonGen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="40" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0">
+        <state line="22" column="31" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/RectangleContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="28" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#337#354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="7" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="22" column="4" selection-start="561" selection-end="561" vertical-scroll-proportion="0.42266187">
+          <folding />
         </state>
       </provider>
     </entry>
