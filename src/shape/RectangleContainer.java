@@ -15,6 +15,14 @@ import java.util.ArrayList;
 public class RectangleContainer extends Rectangle{
 
     private ArrayList<ExtendedPolygon> polygonsInside = new ArrayList<ExtendedPolygon>();
+    private int blankArea;
+    private int area;
+
+    public RectangleContainer(int width, int length) {
+        super(width, length);
+        this.blankArea = width * length;
+        this.area = width * length;
+    }
 
     public boolean contains(ExtendedPolygon polygon) {
         for (int i = 0; i < polygon.npoints; i++) {
@@ -37,7 +45,20 @@ public class RectangleContainer extends Rectangle{
         }
 
         this.polygonsInside.add(polygon);
+        this.blankArea -= polygon.getArea();
 
         return true;
+    }
+
+    public ArrayList<ExtendedPolygon> getPolygonsInside() {
+        return this.polygonsInside;
+    }
+
+    public int getBlankArea() {
+        return this.blankArea;
+    }
+
+    public int getArea() {
+        return this.area;
     }
 }

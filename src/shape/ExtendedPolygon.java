@@ -1,5 +1,6 @@
 package shape;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 import java.util.Vector;
@@ -42,8 +43,8 @@ public class ExtendedPolygon extends Polygon {
 
         // Check each of this polygon's norms
         for (int i = 0; i < this.npoints; i++) {
-            int[] resultPoly_1 = this.getMinMaxProjs(this.norms.get(i));
-            int[] resultPoly_2 = polygon.getMinMaxProjs(this.norms.get(i));
+            int[] resultPoly_1 = this.getMinMaxProjs(this.getNorms().get(i));
+            int[] resultPoly_2 = polygon.getMinMaxProjs(this.getNorms().get(i));
 
             if (resultPoly_1[1] < resultPoly_2[0] || resultPoly_2[1] < resultPoly_1[0]) {
                 // Is intersected
@@ -53,8 +54,8 @@ public class ExtendedPolygon extends Polygon {
 
         // Check each of other polygon's norms
         for (int i = 0; i < polygon.npoints; i++) {
-            int[] resultPoly_1 = this.getMinMaxProjs(polygon.norms.get(i));
-            int[] resultPoly_2 = polygon.getMinMaxProjs(polygon.norms.get(i));
+            int[] resultPoly_1 = this.getMinMaxProjs(polygon.getNorms().get(i));
+            int[] resultPoly_2 = polygon.getMinMaxProjs(polygon.getNorms().get(i));
 
             if (resultPoly_1[1] < resultPoly_2[0] || resultPoly_2[1] < resultPoly_1[0]) {
                 // Is intersected
@@ -70,12 +71,15 @@ public class ExtendedPolygon extends Polygon {
             return area;
         }
 
-        int i = 0;
-        for (; i < this.npoints - 1; i++) {
-            area += (this.xpoints[i + 1] - this.xpoints[i]) * (this.ypoints[i + 1] - this.ypoints[i]);
+        int area1 = 0, area2 = 0;
+        for (int i = 0; i < this.npoints - 1; i++) {
+            area1 += this.xpoints[i] * this.ypoints[i + 1];
         }
-        area += (this.xpoints[0] - this.xpoints[i]) * (this.ypoints[0] - this.ypoints[i]);
-        area /= 2;
+
+        for (int i = 0; i < this.npoints - 1; i++) {
+            area2 += this.ypoints[i] * this.xpoints[i + 1];
+        }
+        area = (area1 - area2) / 2;
 
         return area;
     }
