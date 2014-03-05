@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class RectangleContainer extends Rectangle{
 
     private ArrayList<ExtendedPolygon> polygonsInside = new ArrayList<ExtendedPolygon>();
-    private int blankArea;
-    private int area;
+    private double blankArea;
+    private double area;
 
     public RectangleContainer(int width, int length) {
         super(width, length);
@@ -45,6 +45,7 @@ public class RectangleContainer extends Rectangle{
         }
 
         this.polygonsInside.add(polygon);
+        System.out.format("%d: %d-edges %.2f%% +%.2f m^2\n", this.polygonsInside.size(), polygon.npoints, getCoverageRatio() * 100, polygon.getArea());
         this.blankArea -= polygon.getArea();
 
         return true;
@@ -54,11 +55,15 @@ public class RectangleContainer extends Rectangle{
         return this.polygonsInside;
     }
 
-    public int getBlankArea() {
+    public double getBlankArea() {
         return this.blankArea;
     }
 
-    public int getArea() {
+    public double getArea() {
         return this.area;
+    }
+
+    public double getCoverageRatio() {
+        return 1 - (this.getBlankArea() / this.getArea());
     }
 }

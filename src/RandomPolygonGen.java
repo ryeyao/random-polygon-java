@@ -22,12 +22,12 @@ public class RandomPolygonGen extends JComponent {
     public static RectangleContainer container = new RectangleContainer(CONTAINER_WIDTH, CONTAINER_HEIGHT);
 
     public static ExtendedPolygon randPolygon(int maxEdgeNum, int minRadius, int maxRadius) {
-        Random rand = new Random();
-        int edgeNum = 3 + rand.nextInt() % (maxEdgeNum - 2);
+        Random rand = new Random(Double.doubleToLongBits(Math.random()));
+        int edgeNum = 3 + rand.nextInt(maxEdgeNum - 2);
 
         ExtendedPolygonBuilder pgBuilder = new ExtendedPolygonBuilder(container);
 
-        return pgBuilder.buildPolygon(maxEdgeNum, minRadius, maxRadius);
+        return pgBuilder.buildPolygon(edgeNum, minRadius, maxRadius);
     }
 
     @Override
@@ -47,25 +47,25 @@ public class RandomPolygonGen extends JComponent {
 
         int count = 0;
         int maxEdgeNum = 5;
-        int minRadius = 50;
-        int maxRadius = 100;
-        double minCoverageRatio = 0.9;
+        int minRadius = 25;
+        int maxRadius = 25;
+        double minCoverageRatio = 0.5;
 
         long beginTime = System.currentTimeMillis();
         while(true) {
             boolean result = false;
             result = container.safePut(RandomPolygonGen.randPolygon(maxEdgeNum, minRadius, maxRadius));
             if (!result) {
-                System.out.println("Put again " + count++);
+//                System.out.println("Put again " + count++);
                 continue;
             }
-            if ((double)container.getBlankArea() / (double)container.getArea() < 1.0 - minCoverageRatio ) {
+            if (container.getCoverageRatio() > minCoverageRatio ) {
                 break;
             }
         }
         long timeUsedMillis = System.currentTimeMillis() - beginTime;
         System.out.format("%ds used\n", timeUsedMillis/1000);
-        System.out.format("Coverage Ratio: %.2f%%\n", (1 - (double)container.getBlankArea() / (double)container.getArea()) * 100);
+        System.out.format("Coverage Ratio: %.2f%%\n", container.getCoverageRatio() * 100);
 
         frame.getContentPane().add(new RandomPolygonGen());
         frame.setVisible(true);

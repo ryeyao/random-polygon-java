@@ -33,23 +33,38 @@ public class ExtendedPolygonBuilder {
         center.x = rand.nextInt(container.width - 1) + 1;
         center.y = rand.nextInt(container.height - 1) + 1;
         int radius = minRadius + rand.nextInt(maxRadius - minRadius + 1);
+        double minTriangleArea = 0.2 * Math.PI * radius * radius;
 
         ArrayList<Point> generatedPoints = new ArrayList<Point>();
 
+        ExtendedPolygon triangle = new ExtendedPolygon();
         for (int i = 0; i < edgeNum; i++) {
             Point p = new Point();
             do {
-                double param_t = rand.nextDouble() % 2 * Math.PI;
+                double param_t = rand.nextDouble() * 2 * Math.PI;
                 p.setLocation(radius * Math.cos(param_t) + center.x, radius * Math.sin(param_t) + center.y);
                 if (!generatedPoints.contains(p)) {
                     generatedPoints.add(p);
+                    triangle.addPoint(p.x, p.y);
                     break;
                 }
             } while(true);
+
+            if(i == 2) {
+                // Limit the smallest area of triangle to 1/4 of the circle
+                if(triangle.getArea() < minTriangleArea) {
+                    i = 0;
+                    generatedPoints.remove(generatedPoints.size() - 1);
+                    generatedPoints.remove(generatedPoints.size() - 1);
+                    triangle = new ExtendedPolygon();
+                    Point tmp = generatedPoints.get(generatedPoints.size() - 1);
+                    triangle.addPoint(tmp.x, tmp.y);
+                    continue;
+                }
+            }
         }
 
         final Point c = center;
-        System.out.format("Circle: (%d, %d)\n", c.x, c.y);
 
         Collections.sort(generatedPoints, new Comparator<Point>() {
             private double getMagnitude(Point vector) {
@@ -79,39 +94,30 @@ public class ExtendedPolygonBuilder {
 
                 if(onTheRightSide(axis, vec1) && onTheRightSide(axis, vec2)) {
                     if(onTheRightSide(vec1, vec2)) {
-                        System.out.format("1.(%d, %d) is larger than (%d, %d)\n", point2.x, point2.y, point.x, point.y);
                         return -1;
                     } else {
-                        System.out.format("2.(%d, %d) is larger than (%d, %d)\n", point.x, point.y, point2.x, point2.y);
                         return 1;
                     }
                 } else if(onTheLeftSide(axis, vec1) && onTheLeftSide(axis, vec2)) {
                     if(onTheRightSide(vec1, vec2)) {
-                        System.out.format("3.(%d, %d) is larger than (%d, %d)\n", point2.x, point2.y, point.x, point.y);
                         return -1;
                     } else {
-                        System.out.format("4.(%d, %d) is larger than (%d, %d)\n", point.x, point.y, point2.x, point2.y);
                         return 1;
                     }
                 } else if(onTheRightSide(axis, vec1) && onTheLeftSide(axis, vec2)) {
-                    System.out.format("5.(%d, %d) is larger than (%d, %d)\n", point2.x, point2.y, point.x, point.y);
                     return -1;
                 } else if(onTheLeftSide(axis, vec1) && onTheRightSide(axis, vec2)) {
-                    System.out.format("6.(%d, %d) is larger than (%d, %d)\n", point.x, point.y, point2.x, point2.y);
                     return 1;
                 } else {
 
                     if(onTheSameLine(axis, vec1)) {
                         double magProduct = axis.distance(c) * point.distance(c);
                         if (dotProduct(axis, vec1) == magProduct) {
-                            System.out.format("7.(%d, %d) is larger than (%d, %d)\n", point2.x, point2.y, point.x, point.y);
                             return -1;
                         } else {
                             if(onTheLeftSide(axis, vec2)) {
-                                System.out.format("8.(%d, %d) is larger than (%d, %d)\n", point2.x, point2.y, point.x, point.y);
                                 return -1;
                             } else {
-                                System.out.format("9.(%d, %d) is larger than (%d, %d)\n", point.x, point.y, point2.x, point2.y);
                                 return 1;
                             }
                         }
@@ -119,14 +125,11 @@ public class ExtendedPolygonBuilder {
                     } else {
                         double magProduct = axis.distance(c) * point2.distance(c);
                         if (dotProduct(axis, vec2) == magProduct) {
-                            System.out.format("10.(%d, %d) is larger than (%d, %d)\n", point.x, point.y, point2.x, point2.y);
                             return 1;
                         } else {
                             if(onTheLeftSide(axis, vec1)) {
-                                System.out.format("11.(%d, %d) is larger than (%d, %d)\n", point2.x, point2.y, point.x, point.y);
                                 return -1;
                             } else {
-                                System.out.format("12.(%d, %d) is larger than (%d, %d)\n", point.x, point.y, point2.x, point2.y);
                                 return 1;
                             }
                         }
@@ -136,9 +139,7 @@ public class ExtendedPolygonBuilder {
         });
 
         ExtendedPolygon polygon = new ExtendedPolygon();
-        System.out.println("Points:");
         for (Point p : generatedPoints) {
-            System.out.println("(" + p.x + ", " + p.y + ")");
             polygon.addPoint(p.x, p.y);
         }
 

@@ -67,7 +67,7 @@ public class ExtendedPolygon extends Polygon {
         return true;
     }
 
-    public int getArea() {
+    public double getArea() {
         if (area != 0) {
             return area;
         }
@@ -76,10 +76,12 @@ public class ExtendedPolygon extends Polygon {
         for (int i = 0; i < this.npoints - 1; i++) {
             area1 += this.xpoints[i] * this.ypoints[i + 1];
         }
+        area1 += this.xpoints[this.npoints - 1] * this.ypoints[0];
 
         for (int i = 0; i < this.npoints - 1; i++) {
             area2 += this.ypoints[i] * this.xpoints[i + 1];
         }
+        area2 += this.ypoints[this.npoints - 1] * this.xpoints[0];
         area = (area1 - area2) / 2;
 
         return area;
