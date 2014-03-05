@@ -16,15 +16,21 @@ import java.util.Random;
  */
 public class RandomPolygonGen extends JComponent {
 
-    public static RectangleContainer container = new RectangleContainer(500, 500);
-    public static ExtendedPolygon randPolygon() {
+    public static int CONTAINER_WIDTH = 500;
+    public static int CONTAINER_HEIGHT = 500;
+
+    public static RectangleContainer container = new RectangleContainer(CONTAINER_WIDTH, CONTAINER_HEIGHT);
+
+    public static ExtendedPolygon randPolygon(int maxEdgeNum, int minRadius, int maxRadius) {
         Random rand = new Random();
-        int edgeNum = rand.nextInt() % 3;
+        int edgeNum = 3 + rand.nextInt() % (maxEdgeNum - 2);
+
         ExtendedPolygonBuilder pgBuilder = new ExtendedPolygonBuilder(container);
 
-        return pgBuilder.buildPolygon(0);
+        return pgBuilder.buildPolygon(maxEdgeNum, minRadius, maxRadius);
     }
 
+    @Override
     public void paint(Graphics g) {
 
         for (Polygon p : container.getPolygonsInside()) {
@@ -33,35 +39,35 @@ public class RandomPolygonGen extends JComponent {
     }
 
     public static void main(String[] args) {
-        ExtendedPolygon polygon = RandomPolygonGen.randPolygon();
-        JFrame frm = new JFrame();
-        frm.setTitle("Random Polygon");
-        frm.setLayout(new BorderLayout());
-        frm.setSize(500, 500);
-        frm.setBackground(Color.black);
+        JFrame frame = new JFrame();
+        frame.setTitle("Random Polygon");
+        frame.setLayout(new BorderLayout());
+        frame.setSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
+        frame.setBackground(Color.black);
+
         int count = 0;
-//        for (int i = 0; i < 1000000; i++) {
+        int maxEdgeNum = 5;
+        int minRadius = 50;
+        int maxRadius = 100;
+        double minCoverageRatio = 0.9;
+
+        long beginTime = System.currentTimeMillis();
         while(true) {
             boolean result = false;
-            result = container.safePut(RandomPolygonGen.randPolygon());
+            result = container.safePut(RandomPolygonGen.randPolygon(maxEdgeNum, minRadius, maxRadius));
             if (!result) {
                 System.out.println("Put again " + count++);
                 continue;
             }
-            if ((double)container.getBlankArea() / (double)container.getArea() < 0.3 ) {
+            if ((double)container.getBlankArea() / (double)container.getArea() < 1.0 - minCoverageRatio ) {
                 break;
             }
         }
-        frm.getContentPane().add(new RandomPolygonGen());
-        frm.setVisible(true);
+        long timeUsedMillis = System.currentTimeMillis() - beginTime;
+        System.out.format("%ds used\n", timeUsedMillis/1000);
+        System.out.format("Coverage Ratio: %.2f%%\n", (1 - (double)container.getBlankArea() / (double)container.getArea()) * 100);
 
-//        Graphics g = frm.getGraphics();
-//        Polygon p = RandomPolygonGen.randPolygon();
-//        g.setColor(Color.white);
-//        g.drawPolygon(p);
-//        g.fillRect(100, 50, 70, 55);
-
-
-//        frm.paint(g);
+        frame.getContentPane().add(new RandomPolygonGen());
+        frame.setVisible(true);
     }
 }

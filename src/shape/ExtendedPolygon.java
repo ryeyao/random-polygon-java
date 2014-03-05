@@ -16,8 +16,9 @@ public class ExtendedPolygon extends Polygon {
 
     private Vector<Point> norms = null;
     private int area = 0;
+    private int radius = 0; // radius of the polygons' circumcircle if it exists
 
-    public int[] getMinMaxProjs(Point axis) {
+    private int[] getMinMaxProjs(Point axis) {
         int minProj = this.xpoints[0] * axis.x + this.ypoints[0] * axis.y;
         int maxProj = minProj;
 
@@ -47,7 +48,7 @@ public class ExtendedPolygon extends Polygon {
             int[] resultPoly_2 = polygon.getMinMaxProjs(this.getNorms().get(i));
 
             if (resultPoly_1[1] < resultPoly_2[0] || resultPoly_2[1] < resultPoly_1[0]) {
-                // Is intersected
+                // Not intersected
                 return false;
             }
         }
@@ -58,7 +59,7 @@ public class ExtendedPolygon extends Polygon {
             int[] resultPoly_2 = polygon.getMinMaxProjs(polygon.getNorms().get(i));
 
             if (resultPoly_1[1] < resultPoly_2[0] || resultPoly_2[1] < resultPoly_1[0]) {
-                // Is intersected
+                // Not intersected
                 return false;
             }
         }
@@ -99,5 +100,13 @@ public class ExtendedPolygon extends Polygon {
         this.norms.add(new Point(this.ypoints[i] - this.ypoints[0], this.xpoints[0] - this.xpoints[i]));
 
         return this.norms;
+    }
+
+    public int getRadius() {
+        return this.radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
     }
 }
