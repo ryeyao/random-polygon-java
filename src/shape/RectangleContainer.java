@@ -17,8 +17,9 @@ public class RectangleContainer extends Rectangle{
     private double blankArea;
     private double area;
 
-    public RectangleContainer(int width, int length) {
+    public RectangleContainer(int x, int y, int width, int length) {
         super(width, length);
+        super.setLocation(x, y);
         this.blankArea = width * length;
         this.area = width * length;
     }
@@ -30,6 +31,14 @@ public class RectangleContainer extends Rectangle{
             }
         }
         return true;
+    }
+
+    public boolean remove(ExtendedPolygon p) {
+        boolean res = this.polygonsInside.remove(p);
+        if (res) {
+            this.blankArea += p.getArea();
+        }
+        return res;
     }
 
     public boolean safePut(ExtendedPolygon polygon) {

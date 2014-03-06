@@ -40,6 +40,12 @@ public class ExtendedPolygon extends Polygon {
         return result;
     }
 
+    @Override
+    public void translate(int deltX, int deltY) {
+        super.translate(deltX, deltY);
+        this.circleCenter.translate(deltX, deltY);
+    }
+
     public boolean intersects(ExtendedPolygon polygon) {
 
         // Use box first
@@ -72,10 +78,7 @@ public class ExtendedPolygon extends Polygon {
         return true;
     }
 
-    public double getArea() {
-        if (area != 0) {
-            return area;
-        }
+    private double calculateArea() {
 
         double area1 = 0, area2 = 0;
         for (int i = 0; i < this.npoints - 1; i++) {
@@ -96,6 +99,14 @@ public class ExtendedPolygon extends Polygon {
             area = -area;
             return area;
         }
+    }
+
+    public double getArea() {
+        if (area != 0) {
+            return area;
+        }
+        area = this.calculateArea();
+        return area;
     }
 
     public Vector<Point> getNorms() {

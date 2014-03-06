@@ -1,5 +1,7 @@
 package shape;
 
+import org.w3c.dom.css.Rect;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,17 +27,21 @@ public class ExtendedPolygonBuilder {
     }
 
     public ExtendedPolygon buildPolygon(int edgeNum, int minRadius, int maxRadius) {
-        return this.randAnyPolygon(edgeNum, minRadius, maxRadius);
+        return this.buildPolygon(container, edgeNum, minRadius, maxRadius);
     }
 
-    private ExtendedPolygon randAnyPolygon(int edgeNum, int minRadius, int maxRadius) {
+    public ExtendedPolygon buildPolygon(RectangleContainer box, int edgeNum, int minRadius, int maxRadius) {
+        return this.randAnyPolygon(box, edgeNum, minRadius, maxRadius);
+    }
+
+    private ExtendedPolygon randAnyPolygon(RectangleContainer box, int edgeNum, int minRadius, int maxRadius) {
         Random rand = new Random(Double.doubleToLongBits(Math.random()));
 
         Point center = new Point();
-        center.x = rand.nextInt(container.width - 1) + 1;
-        center.y = rand.nextInt(container.height - 1) + 1;
+        center.x = box.x + rand.nextInt(box.width);
+        center.y = box.x + rand.nextInt(box.height);
         int radius = minRadius + rand.nextInt(maxRadius - minRadius + 1);
-        double minTriangleArea = 0.2 * Math.PI * radius * radius;
+        double minTriangleArea = 0.05 * Math.PI * radius * radius;
 
         ArrayList<Point> generatedPoints = new ArrayList<Point>();
 
