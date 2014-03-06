@@ -15,8 +15,8 @@ import java.util.Vector;
 public class ExtendedPolygon extends Polygon {
 
     private Vector<Point> norms = null;
-    private int area = 0;
-    private int radius = 0; // radius of the polygons' circumcircle if it exists
+    private double area = 0;
+    private double radius = 0; // radius of the polygons' circumcircle if it exists
 
     private int[] getMinMaxProjs(Point axis) {
         int minProj = this.xpoints[0] * axis.x + this.ypoints[0] * axis.y;
@@ -72,7 +72,7 @@ public class ExtendedPolygon extends Polygon {
             return area;
         }
 
-        int area1 = 0, area2 = 0;
+        double area1 = 0, area2 = 0;
         for (int i = 0; i < this.npoints - 1; i++) {
             area1 += this.xpoints[i] * this.ypoints[i + 1];
         }
@@ -82,9 +82,9 @@ public class ExtendedPolygon extends Polygon {
             area2 += this.ypoints[i] * this.xpoints[i + 1];
         }
         area2 += this.ypoints[this.npoints - 1] * this.xpoints[0];
-        area = (area1 - area2) / 2;
+        area = (area1 - area2) / 2.0;
 
-        return area;
+        return Math.abs(area);
     }
 
     public Vector<Point> getNorms() {
@@ -104,7 +104,7 @@ public class ExtendedPolygon extends Polygon {
         return this.norms;
     }
 
-    public int getRadius() {
+    public double getRadius() {
         return this.radius;
     }
 
