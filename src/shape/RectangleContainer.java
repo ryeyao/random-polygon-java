@@ -9,7 +9,6 @@ import java.util.ArrayList;
  * User: Rye
  * Date: 3/4/14
  * Time: 2:45 PM
- * To change this template use File | Settings | File Templates.
  */
 
 public class RectangleContainer extends Rectangle{
@@ -45,8 +44,14 @@ public class RectangleContainer extends Rectangle{
         }
 
         this.polygonsInside.add(polygon);
-        System.out.format("%d: %d-edges %.2f%% +%.2f m^2\n", this.polygonsInside.size(), polygon.npoints, getCoverageRatio() * 100, polygon.getArea());
         this.blankArea -= polygon.getArea();
+        double a = polygon.getArea();
+        System.out.format("%d: %d-edges %.2f%% +%.2f pix^2\n", this.polygonsInside.size(), polygon.npoints, getCoverageRatio() * 100, polygon.getArea());
+//        System.out.format("Circle:(%d, %d)\n", polygon.getCircleCenter().x, polygon.getCircleCenter().y);
+//        System.out.println("Points:");
+//        for(int j = 0; j < polygon.npoints; j++) {
+//            System.out.format("(%d, %d)\n", polygon.xpoints[j], polygon.ypoints[j]);
+//        }
 
         return true;
     }

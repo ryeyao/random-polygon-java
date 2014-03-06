@@ -10,13 +10,13 @@ import java.util.Vector;
  * User: Rye
  * Date: 3/4/14
  * Time: 2:47 PM
- * To change this template use File | Settings | File Templates.
  */
 public class ExtendedPolygon extends Polygon {
 
     private Vector<Point> norms = null;
     private double area = 0;
     private double radius = 0; // radius of the polygons' circumcircle if it exists
+    private Point circleCenter;
 
     private int[] getMinMaxProjs(Point axis) {
         int minProj = this.xpoints[0] * axis.x + this.ypoints[0] * axis.y;
@@ -82,9 +82,15 @@ public class ExtendedPolygon extends Polygon {
             area2 += this.ypoints[i] * this.xpoints[i + 1];
         }
         area2 += this.ypoints[this.npoints - 1] * this.xpoints[0];
-        area = (area1 - area2) / 2.0;
 
-        return Math.abs(area);
+        area = (area1 - area2) * 0.5;
+
+        if(area > 0) {
+            return area;
+        } else {
+            area = -area;
+            return area;
+        }
     }
 
     public Vector<Point> getNorms() {
@@ -110,5 +116,13 @@ public class ExtendedPolygon extends Polygon {
 
     public void setRadius(int radius) {
         this.radius = radius;
+    }
+
+    public void setCircleCenter(Point center) {
+        this.circleCenter = center;
+    }
+
+    public Point getCircleCenter() {
+        return this.circleCenter;
     }
 }

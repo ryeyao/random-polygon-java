@@ -12,7 +12,6 @@ import java.util.Random;
  * User: Rye
  * Date: 3/4/14
  * Time: 2:16 PM
- * To change this template use File | Settings | File Templates.
  */
 public class RandomPolygonGen extends JComponent {
 
@@ -34,6 +33,8 @@ public class RandomPolygonGen extends JComponent {
     public void paint(Graphics g) {
 
         for (Polygon p : container.getPolygonsInside()) {
+//            g.setColor(Color.BLUE);
+//            g.fillPolygon(p);
             g.drawPolygon(p);
         }
     }
@@ -41,15 +42,16 @@ public class RandomPolygonGen extends JComponent {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setTitle("Random Polygon");
-        frame.setLayout(new BorderLayout());
+//        frame.setLayout(new BorderLayout());
         frame.setSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
         frame.setBackground(Color.black);
+        frame.setLocation(500, 150);
 
         int count = 0;
         int maxEdgeNum = 5;
-        int minRadius = 25;
-        int maxRadius = 25;
-        double minCoverageRatio = 0.5;
+        int minRadius = 10;
+        int maxRadius = 50;
+        double minCoverageRatio = 0.50;
 
         long beginTime = System.currentTimeMillis();
         while(true) {
