@@ -51,7 +51,7 @@ public class RandomPolygonGen extends JComponent {
         int maxEdgeNum = 5;
         int minRadius = 10;
         int maxRadius = 50;
-        double minCoverageRatio = 0.50;
+        double minCoverageRatio = 0.75;
 
         long beginTime = System.currentTimeMillis();
         while(true) {

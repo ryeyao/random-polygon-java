@@ -42,6 +42,11 @@ public class ExtendedPolygon extends Polygon {
 
     public boolean intersects(ExtendedPolygon polygon) {
 
+        // Use box first
+        if(!this.intersects(polygon.getBounds2D())) {
+            return false;
+        }
+
         // Check each of this polygon's norms
         for (int i = 0; i < this.npoints; i++) {
             int[] resultPoly_1 = this.getMinMaxProjs(this.getNorms().get(i));
