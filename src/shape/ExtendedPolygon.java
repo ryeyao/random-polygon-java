@@ -2,6 +2,7 @@ package shape;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
@@ -17,6 +18,15 @@ public class ExtendedPolygon extends Polygon {
     private double area = 0;
     private double radius = 0; // radius of the polygons' circumcircle if it exists
     private Point circleCenter;
+    private short quadrant = -1;
+
+    public void setQuadrant(short quadrant) {
+        this.quadrant = quadrant;
+    }
+
+    public int getQuadrant() {
+        return quadrant;
+    }
 
     private int[] getMinMaxProjs(Point axis) {
         int minProj = this.xpoints[0] * axis.x + this.ypoints[0] * axis.y;
