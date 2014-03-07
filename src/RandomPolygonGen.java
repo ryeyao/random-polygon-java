@@ -62,30 +62,36 @@ public class RandomPolygonGen extends JComponent {
 
         System.out.println("Awesomely fill the rest.");
         int iterCount = container.width * container.height;
-        int expandTry = 5;
+        int expandTry = 50;
         int expandStep = 1;
 
         Random rand = new Random(Double.doubleToLongBits(Math.random()));
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < iterCount; i++) {
             Rectangle box = new Rectangle();
             box.width = 4;
             box.height = 4;
             Point point = new Point();
-            point.x = rand.nextInt(container.width - 1) + 1;
-            point.y = rand.nextInt(container.height - 1) + 1;
+//            point.x = rand.nextInt(container.width - 1) + 1;
+//            point.y = rand.nextInt(container.height - 1) + 1;
+            point.x = i % container.width;
+            point.y = i / container.height;
+
             ExtendedPolygon polygon = null;
-            boolean intersected;
+            boolean success;
             for(int j = 0; j < expandTry * expandStep; j += expandStep) {
+//                System.out.println("Try " + j + " times");
                 box.width += j;
                 box.height += j;
                 ExtendedPolygon tmpPoly;
                 tmpPoly = randPolygonWithinBox(box, 5);
-                intersected = container.safePut(tmpPoly);
-                if(intersected) {
-                    break;
-                } else {
+                success = container.safePut(tmpPoly);
+                if(success) {
+//                    System.out.println(j + " try ok.\n remove and retry.");
                     polygon = tmpPoly;
                     container.remove(tmpPoly);
+                } else {
+//                    System.out.println(j + " try fail.");
+                    break;
                 }
             }
 
@@ -93,10 +99,6 @@ public class RandomPolygonGen extends JComponent {
                 container.put(polygon);
             }
         }
-    }
-
-    public static void scanAndFillTheRest() {
-
     }
 
     public static void fillTheRest() {
@@ -133,7 +135,7 @@ public class RandomPolygonGen extends JComponent {
         int maxRadius = 50;
         int stepX = -1;
         int stepY = 1;
-        double minCoverageRatio = 0.60;
+        double minCoverageRatio = 0.65;
         boolean[] notOrgnized = {true, true, true, true, true, true, true, true};
 
         long beginTime = System.currentTimeMillis();
@@ -155,139 +157,143 @@ public class RandomPolygonGen extends JComponent {
                     }
                 }
             }
-            if(notOrgnized[0] && container.getCoverageRatio() >= 0.3) {
-                for(;container.getListSize() > 0;) {
-                    ExtendedPolygon p = container.getPolygonsInside().get(0);
-                    container.remove(p);
-
-                    for(int i = 0; i < 20; i++) {
-                        Random r = new Random(Double.doubleToLongBits(Math.random()));
-                        int deltX = stepX + r.nextInt(3);
-                        int deltY = stepY * r.nextInt(2);
-                        p.translate(deltX, deltY);
-                        result = container.safePut(p);
-                        if(result == true) {
-                            System.out.println("move done.");
-                            break;
-                        }
-                    }
-                }
-                notOrgnized[0] = false;
-            }
-            if(notOrgnized[1] && container.getCoverageRatio() >= 0.4) {
-                for(;container.getPolygonsInside().size() > 0;) {
-                    ExtendedPolygon p = container.getPolygonsInside().get(0);
-                    container.remove(p);
-
-                    for(int i = 0; i < 20; i++) {
-                        Random r = new Random(Double.doubleToLongBits(Math.random()));
-                        int deltX = stepX + r.nextInt(3);
-                        int deltY = stepY * r.nextInt(2);
-                        p.translate(deltX, deltY);
-                        result = container.safePut(p);
-                        if(result.size() == 0) {
-                            System.out.println("move done.");
-                            break;
-                        }
-                    }
-                }
-                notOrgnized[1] = false;
-            }
-            if(notOrgnized[2] && container.getCoverageRatio() >= 0.5) {
-                for(;container.getPolygonsInside().size() > 0;) {
-                    ExtendedPolygon p = container.getPolygonsInside().get(0);
-                    container.remove(p);
-
-                    for(int i = 0; i < 20; i++) {
-                        Random r = new Random(Double.doubleToLongBits(Math.random()));
-                        int deltX = stepX + r.nextInt(3);
-                        int deltY = stepY * r.nextInt(2);
-                        p.translate(deltX, deltY);
-                        result = container.safePut(p);
-                        if(result.size() == 0) {
-                            System.out.println("move done.");
-                            break;
-                        }
-                    }
-                }
-                notOrgnized[2] = false;
-            }
-            if(notOrgnized[3] && container.getCoverageRatio() >= 0.6) {
-                for(;container.getPolygonsInside().size() > 0;) {
-                    ExtendedPolygon p = container.getPolygonsInside().get(0);
-                    container.remove(p);
-
-                    for(int i = 0; i < 20; i++) {
-                        Random r = new Random(Double.doubleToLongBits(Math.random()));
-                        int deltX = stepX + r.nextInt(3);
-                        int deltY = stepY * r.nextInt(2);
-                        p.translate(deltX, deltY);
-                        result = container.safePut(p);
-                        if(result.size() == 0) {
-                            System.out.println("move done.");
-                            break;
-                        }
-                    }
-                }
-                notOrgnized[3] = false;
-            }
-            if(notOrgnized[4] && container.getCoverageRatio() >= 0.7) {
-                for(;container.getPolygonsInside().size() > 0;) {
-                    ExtendedPolygon p = container.getPolygonsInside().get(0);
-                    container.remove(p);
-
-                    for(int i = 0; i < 20; i++) {
-                        Random r = new Random(Double.doubleToLongBits(Math.random()));
-                        int deltX = stepX + r.nextInt(3);
-                        int deltY = stepY * r.nextInt(2);
-                        p.translate(deltX, deltY);
-                        result = container.safePut(p);
-                        if(result.size() == 0) {
-                            System.out.println("move done.");
-                            break;
-                        }
-                    }
-                }
-                notOrgnized[4] = false;
-            }
-            if(notOrgnized[5] && container.getCoverageRatio() >= 0.8) {
-                for(;container.getPolygonsInside().size() > 0;) {
-                    ExtendedPolygon p = container.getPolygonsInside().get(0);
-                    container.remove(p);
-
-                    for(int i = 0; i < 20; i++) {
-                        Random r = new Random(Double.doubleToLongBits(Math.random()));
-                        int deltX = stepX + r.nextInt(3);
-                        int deltY = stepY * r.nextInt(2);
-                        p.translate(deltX, deltY);
-                        result = container.safePut(p);
-                        if(result.size() == 0) {
-                            System.out.println("move done.");
-                            break;
-                        }
-                    }
-                }
-                notOrgnized[5] = false;
-            }
-            if(notOrgnized[6] && container.getCoverageRatio() >= 0.9) {
-                for(;container.getPolygonsInside().size() > 0;) {
-                    ExtendedPolygon p = container.getPolygonsInside().get(0);
-                    container.remove(p);
-
-                    for(int i = 0; i < 20; i++) {
-                        Random r = new Random(Double.doubleToLongBits(Math.random()));
-                        int deltX = stepX + r.nextInt(3);
-                        int deltY = stepY * r.nextInt(2);
-                        p.translate(deltX, deltY);
-                        result = container.safePut(p);
-                        if(result.size() == 0) {
-                            System.out.println("move done.");
-                            break;
-                        }
-                    }
-                }
-                notOrgnized[6] = false;
-            }
+//            if(notOrgnized[0] && container.getCoverageRatio() >= 0.3) {
+//                for(ArrayList<ExtendedPolygon> l: container.getPolygonsInside()) {
+//                    for(ExtendedPolygon p: l) {
+//                        container.remove(p);
+//                        for(int i = 0; i < 20; i++) {
+//                            Random r = new Random(Double.doubleToLongBits(Math.random()));
+//                            int deltX = stepX + r.nextInt(3);
+//                            int deltY = stepY * r.nextInt(2);
+//                            p.translate(deltX, deltY);
+//                            result = container.safePut(p);
+//                            if(result == true) {
+//                                System.out.println("move done.");
+//                                break;
+//                            }
+//                        }
+//                        if(result == false) {
+//                            break;
+//                        }
+//                    }
+//                }
+//                notOrgnized[0] = false;
+//            }
+//            if(notOrgnized[1] && container.getCoverageRatio() >= 0.4) {
+//                for(ArrayList<ExtendedPolygon> l: container.getPolygonsInside()) {
+//                    for(ExtendedPolygon p: l) {
+//                        container.remove(p);
+//
+//                        for(int i = 0; i < 20; i++) {
+//                            Random r = new Random(Double.doubleToLongBits(Math.random()));
+//                            int deltX = stepX + r.nextInt(3);
+//                            int deltY = stepY * r.nextInt(2);
+//                            p.translate(deltX, deltY);
+//                            result = container.safePut(p);
+//                            if(result == true) {
+//                                System.out.println("move done.");
+//                                break;
+//                            }
+//                        }
+//                    }
+//                }
+//                notOrgnized[1] = false;
+//            }
+//            if(notOrgnized[2] && container.getCoverageRatio() >= 0.5) {
+//                for(;container.getPolygonsInside().size() > 0;) {
+//                    ExtendedPolygon p = container.getPolygonsInside().get(0);
+//                    container.remove(p);
+//
+//                    for(int i = 0; i < 20; i++) {
+//                        Random r = new Random(Double.doubleToLongBits(Math.random()));
+//                        int deltX = stepX + r.nextInt(3);
+//                        int deltY = stepY * r.nextInt(2);
+//                        p.translate(deltX, deltY);
+//                        result = container.safePut(p);
+//                        if(result.size() == 0) {
+//                            System.out.println("move done.");
+//                            break;
+//                        }
+//                    }
+//                }
+//                notOrgnized[2] = false;
+//            }
+//            if(notOrgnized[3] && container.getCoverageRatio() >= 0.6) {
+//                for(;container.getPolygonsInside().size() > 0;) {
+//                    ExtendedPolygon p = container.getPolygonsInside().get(0);
+//                    container.remove(p);
+//
+//                    for(int i = 0; i < 20; i++) {
+//                        Random r = new Random(Double.doubleToLongBits(Math.random()));
+//                        int deltX = stepX + r.nextInt(3);
+//                        int deltY = stepY * r.nextInt(2);
+//                        p.translate(deltX, deltY);
+//                        result = container.safePut(p);
+//                        if(result.size() == 0) {
+//                            System.out.println("move done.");
+//                            break;
+//                        }
+//                    }
+//                }
+//                notOrgnized[3] = false;
+//            }
+//            if(notOrgnized[4] && container.getCoverageRatio() >= 0.7) {
+//                for(;container.getPolygonsInside().size() > 0;) {
+//                    ExtendedPolygon p = container.getPolygonsInside().get(0);
+//                    container.remove(p);
+//
+//                    for(int i = 0; i < 20; i++) {
+//                        Random r = new Random(Double.doubleToLongBits(Math.random()));
+//                        int deltX = stepX + r.nextInt(3);
+//                        int deltY = stepY * r.nextInt(2);
+//                        p.translate(deltX, deltY);
+//                        result = container.safePut(p);
+//                        if(result.size() == 0) {
+//                            System.out.println("move done.");
+//                            break;
+//                        }
+//                    }
+//                }
+//                notOrgnized[4] = false;
+//            }
+//            if(notOrgnized[5] && container.getCoverageRatio() >= 0.8) {
+//                for(;container.getPolygonsInside().size() > 0;) {
+//                    ExtendedPolygon p = container.getPolygonsInside().get(0);
+//                    container.remove(p);
+//
+//                    for(int i = 0; i < 20; i++) {
+//                        Random r = new Random(Double.doubleToLongBits(Math.random()));
+//                        int deltX = stepX + r.nextInt(3);
+//                        int deltY = stepY * r.nextInt(2);
+//                        p.translate(deltX, deltY);
+//                        result = container.safePut(p);
+//                        if(result.size() == 0) {
+//                            System.out.println("move done.");
+//                            break;
+//                        }
+//                    }
+//                }
+//                notOrgnized[5] = false;
+//            }
+//            if(notOrgnized[6] && container.getCoverageRatio() >= 0.9) {
+//                for(;container.getPolygonsInside().size() > 0;) {
+//                    ExtendedPolygon p = container.getPolygonsInside().get(0);
+//                    container.remove(p);
+//
+//                    for(int i = 0; i < 20; i++) {
+//                        Random r = new Random(Double.doubleToLongBits(Math.random()));
+//                        int deltX = stepX + r.nextInt(3);
+//                        int deltY = stepY * r.nextInt(2);
+//                        p.translate(deltX, deltY);
+//                        result = container.safePut(p);
+//                        if(result.size() == 0) {
+//                            System.out.println("move done.");
+//                            break;
+//                        }
+//                    }
+//                }
+//                notOrgnized[6] = false;
+//            }
 //            if(notOrgnized[7] && container.getCoverageRatio() >= minCoverageRatio) {
 //                for(;container.getPolygonsInside().size() > 0;) {
 //                    ExtendedPolygon p = container.getPolygonsInside().get(0);
@@ -310,7 +316,7 @@ public class RandomPolygonGen extends JComponent {
 //                System.out.println("Put again " + count++);
             if(container.getCoverageRatio() > minCoverageRatio ) {
 //                fillTheRest();
-//                awesomelyFillTheRest();
+                awesomelyFillTheRest();
                 break;
             }
         }

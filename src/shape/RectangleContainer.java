@@ -77,6 +77,7 @@ public class RectangleContainer extends Rectangle{
         this.polygonsInside[polygon.getQuadrant()].add(polygon);
         this.blankArea -= polygon.getArea();
         double a = polygon.getArea();
+        listSize = 0;
         for(ArrayList l : this.polygonsInside) {
             listSize += l.size();
         }
@@ -88,34 +89,30 @@ public class RectangleContainer extends Rectangle{
             return false;
         }
 
-        for(int i = 4; i >= 0; i--) {
-            if(polygonsInside[i].contains(polygon)) {
-                for(ExtendedPolygon pg : polygonsInside[i]) {
+//        for(int i = 4; i >= 0; i--) {
+        int section = getQuadrant(polygon);
+        polygon.setQuadrant(section);
+        for(ExtendedPolygon pg : polygonsInside[0]) {
+            if (polygon.intersects(pg)) {
+                return false;
+            }
+        }
+        if(section == 0) {
+            for(int i = 1; i < 5; i++) {
+//            for(ArrayList<ExtendedPolygon> l: this.polygonsInside) {
+                for(ExtendedPolygon pg : this.polygonsInside[i]) {
                     if (polygon.intersects(pg)) {
                         return false;
                     }
                 }
-                polygon.setQuadrant((short)i);
-                this.put(polygon);
-                return true;
-//                System.out.format("Circle:(%d, %d)\n", polygon.getCircleCenter().x, polygon.getCircleCenter().y);
-//                System.out.println("Points:");
-//                for(int j = 0; j < polygon.npoints; j++) {
-//                    System.out.format("(%d, %d)\n", polygon.xpoints[j], polygon.ypoints[j]);
-//                }
-            } else if(i == 0) {
-                break;
             }
-        }
-
-        for(ArrayList<ExtendedPolygon> l: this.polygonsInside) {
-            for(ExtendedPolygon pg : l) {
+        } else {
+            for(ExtendedPolygon pg : polygonsInside[section]) {
                 if (polygon.intersects(pg)) {
-                   return false;
+                    return false;
                 }
             }
         }
-        polygon.setQuadrant((short)0);
         this.put(polygon);
 
         return true;

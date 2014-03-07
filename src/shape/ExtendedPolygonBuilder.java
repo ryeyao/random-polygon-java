@@ -45,7 +45,7 @@ public class ExtendedPolygonBuilder {
         Point center = new Point();
         center.x = box.width / 2;
         center.y = box.height / 2;
-        int radius = edgeNum / 2;
+        int radius = box.width / 2;
         double minTriangleArea = 0.05 * Math.PI * radius * radius;
 
         ArrayList<Point> generatedPoints = new ArrayList<Point>();

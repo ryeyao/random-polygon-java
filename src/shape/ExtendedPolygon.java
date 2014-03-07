@@ -20,8 +20,8 @@ public class ExtendedPolygon extends Polygon {
     private Point circleCenter;
     private short quadrant = -1;
 
-    public void setQuadrant(short quadrant) {
-        this.quadrant = quadrant;
+    public void setQuadrant(int quadrant) {
+        this.quadrant = (short)quadrant;
     }
 
     public int getQuadrant() {
