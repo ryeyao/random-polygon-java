@@ -62,25 +62,19 @@ public class VectorComparator implements Comparator<Point> {
 
         if(on_right_av1 && on_right_av2) {
             if(on_right_v1v2) {
-                logger.fine(String.format("1.vec1=(%d, %d), vec2=(%d, %d)\n", vec1.x, vec1.y, vec2.x, vec2.y));
                 return -1;
             } else {
-                logger.fine(String.format("2.vec1=(%d, %d), vec2=(%d, %d)\n", vec1.x, vec1.y, vec2.x, vec2.y));
                 return 1;
             }
         } else if(on_left_av1 && on_left_av2) {
             if(on_right_v1v2) {
-                logger.fine(String.format("3.vec1=(%d, %d), vec2=(%d, %d)\n", vec1.x, vec1.y, vec2.x, vec2.y));
                 return -1;
             } else {
-                logger.fine(String.format("4.vec1=(%d, %d), vec2=(%d, %d)\n", vec1.x, vec1.y, vec2.x, vec2.y));
                 return 1;
             }
         } else if(on_right_av1 && on_left_av2) {
-            logger.fine(String.format("5.vec1=(%d, %d), vec2=(%d, %d)\n", vec1.x, vec1.y, vec2.x, vec2.y));
             return -1;
         } else if(on_left_av1 && on_right_av2) {
-            logger.fine(String.format("6.vec1=(%d, %d), vec2=(%d, %d)\n", vec1.x, vec1.y, vec2.x, vec2.y));
             return 1;
         } else if(on_same_v1v2) {
             // on_same_av1 && on_same_av2

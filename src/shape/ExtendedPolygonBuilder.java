@@ -43,10 +43,10 @@ public class ExtendedPolygonBuilder {
         Random rand = new Random(Double.doubleToLongBits(Math.random()));
 
         Point center = new Point();
-        center.x = box.width / 2;
-        center.y = box.height / 2;
+        center.x = box.x + box.width / 2;
+        center.y = box.y + box.height / 2;
         int radius = box.width / 2;
-        double minTriangleArea = 0.05 * Math.PI * radius * radius;
+        double minTriangleArea = 0.3 * Math.PI * radius * radius;
 
         ArrayList<Point> generatedPoints = new ArrayList<Point>();
 
