@@ -1,3 +1,5 @@
+package view;
+
 import shape.ExtendedPolygon;
 import shape.ExtendedPolygonBuilder;
 import shape.RectangleContainer;
@@ -7,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static java.lang.Thread.interrupted;
 import static java.lang.Thread.sleep;
 
 /**
@@ -15,24 +18,49 @@ import static java.lang.Thread.sleep;
  * Date: 3/4/14
  * Time: 2:16 PM
  */
-public class RandomPolygonGen extends JComponent {
+public class RandomPolygonGen extends JComponent implements Runnable{
 
     public static int CONTAINER_WIDTH = 500;
     public static int CONTAINER_HEIGHT = 500;
 
-    public static RectangleContainer container = new RectangleContainer(0, 0, CONTAINER_WIDTH, CONTAINER_HEIGHT);
-    private JFrame frame;
+    private RectangleContainer container;
+    private int maxEdgeNum;
+    private int minRadius;
+    private int maxRadius;
+    private int stepX;
+    private int stepY;
+    private double minCoverageRatio;
+    private int iterCount;
+    private int expandTry;
+    private int expandStep;
+    private int successCount;
+    private int failureCount;
+
+    private boolean interrupted = false;
 
     public RandomPolygonGen() {
         super();
-        frame = new JFrame();
-        frame.setTitle("Random Polygon");
-        frame.setLayout(new BorderLayout());
-        frame.setSize(CONTAINER_WIDTH + 17, CONTAINER_HEIGHT + 40);
-        frame.setBackground(Color.black);
-        frame.setLocation(500, 150);
-        frame.getContentPane().add(this);
-        frame.setVisible(true);
+        this.init();
+    }
+
+    private void init() {
+        container = new RectangleContainer(0, 0, CONTAINER_WIDTH, CONTAINER_HEIGHT);
+        maxEdgeNum = 5;
+        minRadius = 30;
+        maxRadius = 80;
+        stepX = -1;
+        stepY = 1;
+        minCoverageRatio = 0.50;
+        iterCount = container.width * container.height;
+        expandTry = 50;
+        expandStep = 1;
+        successCount = 0;
+        failureCount = 0;
+
+    }
+
+    private void cleanup() {
+        container = null;
     }
 
     public static ExtendedPolygon randPolygonWithinBox(Rectangle box, int maxEdgeNum) {
@@ -68,21 +96,16 @@ public class RandomPolygonGen extends JComponent {
         g.drawRect(container.x, container.y, CONTAINER_WIDTH, CONTAINER_HEIGHT);
     }
 
-    public void awesomelyFillTheRest() throws InterruptedException {
-        // TODO(Rye): 1.   Randomly generate points, pick those that are not in any of the polygons in container
+    private void awesomelyFillTheRest() throws InterruptedException {
+        // TODO(Rye): 1.   Randomly run points, pick those that are not in any of the polygons in container
         //              2.    For each point, change it into random boxes with a small unit bound.
         //              2.1.  Then increase there bounds by a small random step independently,
         //              3.    Go through the small boxes in 2.1, throw out those intersect with exist polygons
-        //              3.1   For each of the rest boxes, randomly generate polygons within
+        //              3.1   For each of the rest boxes, randomly run polygons within
         //              3.2   Put the generated polygons into container
         //              4     Repeat for reasonable times
 
         System.out.println("Awesomely fill the rest.");
-        int iterCount = container.width * container.height;
-        int expandTry = 50;
-        int expandStep = 1;
-        int successCount = 0;
-        int failureCount = 0;
 
         Random rand = new Random(Double.doubleToLongBits(Math.random()));
         for(int i = 0; i < iterCount; i++) {
@@ -93,11 +116,17 @@ public class RandomPolygonGen extends JComponent {
             box.y = rand.nextInt(container.height - 1) + 1;
             box.width = 30;
             box.height = 30;
+            if(interrupted) {
+                return;
+            }
 
             ExtendedPolygon polygon = null;
             boolean success;
             for(int j = 0; j < expandTry * expandStep; j += expandStep) {
 //                System.out.println("Try " + j + " times");
+                if(interrupted) {
+                    return;
+                }
                 box.width += j;
                 box.height += j;
 
@@ -110,7 +139,7 @@ public class RandomPolygonGen extends JComponent {
                 tmpPoly = randPolygonWithinBox(box, 5);
                 success = container.safePut(tmpPoly);
 
-                frame.repaint();
+                this.repaint();
 
                 if(success) {
 //                    System.out.println(j + " try ok.\n remove and retry.");
@@ -131,43 +160,28 @@ public class RandomPolygonGen extends JComponent {
         }
     }
 
-    public static void fillTheRest() {
-        System.out.println("Fill the rest.");
-        int boxEdgeLen = 4;
-        int boxNum = (int)container.getArea() / (boxEdgeLen * boxEdgeLen);
-        for(int i = 0; i < boxNum; i++) {
-            int rectX = i % (container.width / boxEdgeLen) * boxEdgeLen;
-            int rectY = (i / (container.width / boxEdgeLen)) * boxEdgeLen;
-            RectangleContainer rect = new RectangleContainer(rectX, rectY, boxEdgeLen, boxEdgeLen);
-            ExtendedPolygon poly = randPolygonWithinBox(rect, 5);
-            boolean intersected = container.safePut(poly);
-        }
-    }
+    @Override
+    public void run(){
 
-    public void run() throws InterruptedException {
+//        this.setVisible(true);
 
-        int count = 0;
-        int maxEdgeNum = 5;
-        int minRadius = 30;
-        int maxRadius = 80;
-        int stepX = -1;
-        int stepY = 1;
-        double minCoverageRatio = 0.60;
-        boolean[] notOrgnized = {true, true, true, true, true, true, true, true};
-
+        interrupted = false;
         long beginTime = System.currentTimeMillis();
-//        while(true) {
-//            awesomelyFillTheRest();
-//        }
 
         while(true) {
-            frame.repaint();
+            if(interrupted) {
+                return;
+            }
+            this.repaint();
             boolean result;
             ExtendedPolygon polygon = RandomPolygonGen.randPolygon(container, maxEdgeNum, minRadius, maxRadius);
             result = container.safePut(polygon);
             if(!result) {
                 for(int i = 0; i < 50; i++) {
-                    frame.repaint();
+                    if(interrupted) {
+                        return;
+                    }
+                    this.repaint();
                     Random r = new Random(Double.doubleToLongBits(Math.random()));
                     int deltX = stepX + r.nextInt(3);
 //                    int deltY = stepY * r.nextInt(2);
@@ -181,18 +195,77 @@ public class RandomPolygonGen extends JComponent {
             }
             if(container.getCoverageRatio() > minCoverageRatio ) {
 //                fillTheRest();
-                awesomelyFillTheRest();
+                try {
+                    awesomelyFillTheRest();
+                    if(interrupted) {
+                        return;
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
         }
         long timeUsedMillis = System.currentTimeMillis() - beginTime;
         System.out.format("%ds used\n", timeUsedMillis/1000);
         System.out.format("Coverage Ratio: %.2f%%\n", container.getCoverageRatio() * 100);
-
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        RandomPolygonGen rpg = new RandomPolygonGen();
-        rpg.run();
+    public double getMinCoverageRatio() {
+        return minCoverageRatio;
     }
+
+    public void setMinCoverageRatio(double minCoverageRatio) {
+        this.minCoverageRatio = minCoverageRatio;
+    }
+
+    public int getStepY() {
+        return stepY;
+    }
+
+    public void setStepY(int stepY) {
+        this.stepY = stepY;
+    }
+
+    public int getStepX() {
+        return stepX;
+    }
+
+    public void setStepX(int stepX) {
+        this.stepX = stepX;
+    }
+
+    public int getMaxRadius() {
+        return maxRadius;
+    }
+
+    public void setMaxRadius(int maxRadius) {
+        this.maxRadius = maxRadius;
+    }
+
+    public int getMinRadius() {
+        return minRadius;
+    }
+
+    public void setMinRadius(int minRadius) {
+        this.minRadius = minRadius;
+    }
+
+    public int getMaxEdgeNum() {
+        return maxEdgeNum;
+    }
+
+    public void setMaxEdgeNum(int maxEdgeNum) {
+        this.maxEdgeNum = maxEdgeNum;
+    }
+
+    public boolean isInterrupted() {
+        return interrupted;
+    }
+
+    public void setInterrupted(boolean interrupted) {
+        this.interrupted = interrupted;
+    }
+
+
 }

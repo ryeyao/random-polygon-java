@@ -28,6 +28,14 @@ public class RectangleContainer extends Rectangle{
         }
     }
 
+    public ArrayList<ExtendedPolygon> getAllPolygons() {
+        ArrayList<ExtendedPolygon> all = new ArrayList<ExtendedPolygon>();
+        for(int i = 0; i < 5; i++) {
+            ArrayList<ExtendedPolygon> polygons = polygonsInside[i];
+            all.addAll(polygons);
+        }
+        return all;
+    }
     private int getQuadrant(ExtendedPolygon polygon) {
         return calculateQuadrant(polygon, this.x, this.y, this.width, this.height);
     }

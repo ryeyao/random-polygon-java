@@ -1,7 +1,8 @@
 <component name="libraryTable">
   <library name="jpct">
     <CLASSES>
-      <root url="jar://F:/LIBs/JavaLIB/graphics/jpct/lib/jpct/jpct.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../libs/java/graphics/cad/nttcad/nttcad-lib/nttcad/nttcad.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../libs/java/graphics/cad/nttcad/nttcad-lib/nttcad/common.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
