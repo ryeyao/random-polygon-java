@@ -1,4 +1,4 @@
-package view;
+package ui;
 
 import shape.ExtendedPolygon;
 import shape.ExtendedPolygonBuilder;
@@ -6,10 +6,10 @@ import shape.RectangleContainer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static java.lang.Thread.interrupted;
 import static java.lang.Thread.sleep;
 
 /**
@@ -20,8 +20,8 @@ import static java.lang.Thread.sleep;
  */
 public class RandomPolygonGen extends JComponent implements Runnable{
 
-    public static int CONTAINER_WIDTH = 500;
-    public static int CONTAINER_HEIGHT = 500;
+    public int containerWidth;
+    public int containerHeight;
 
     private RectangleContainer container;
     private int maxEdgeNum;
@@ -36,6 +36,9 @@ public class RandomPolygonGen extends JComponent implements Runnable{
     private int successCount;
     private int failureCount;
 
+    public Object done = new Object();
+    private long beginTime = 0;
+
     private boolean interrupted = false;
 
     public RandomPolygonGen() {
@@ -44,23 +47,26 @@ public class RandomPolygonGen extends JComponent implements Runnable{
     }
 
     private void init() {
-        container = new RectangleContainer(0, 0, CONTAINER_WIDTH, CONTAINER_HEIGHT);
         maxEdgeNum = 5;
         minRadius = 30;
         maxRadius = 80;
         stepX = -1;
         stepY = 1;
         minCoverageRatio = 0.50;
-        iterCount = container.width * container.height;
         expandTry = 50;
         expandStep = 1;
         successCount = 0;
         failureCount = 0;
+        containerWidth = 500;
+        containerHeight = 500;
+        iterCount = containerWidth * containerHeight;
+        container = new RectangleContainer(0, 0, containerWidth, containerHeight);
 
     }
 
     private void cleanup() {
-        container = null;
+        System.out.println("Exiting...");
+        container = new RectangleContainer(0, 0, containerWidth, containerHeight);
     }
 
     public static ExtendedPolygon randPolygonWithinBox(Rectangle box, int maxEdgeNum) {
@@ -93,7 +99,16 @@ public class RandomPolygonGen extends JComponent implements Runnable{
                 g.drawPolygon(p);
             }
         }
-        g.drawRect(container.x, container.y, CONTAINER_WIDTH, CONTAINER_HEIGHT);
+        g.drawRect(container.x, container.y, container.width, container.height);
+
+        long timeUsed = 0;
+        if(beginTime != 0) {
+            timeUsed = System.currentTimeMillis() - beginTime;
+        }
+        String ratioText = String.format("Ratio: %.2f%%", container.getCoverageRatio() * 100, timeUsed);
+        String timeText = String.format("Time: %dms", timeUsed);
+        g.drawString(ratioText, container.width + 2, 15);
+        g.drawString(timeText, container.width + 2, 30);
     }
 
     private void awesomelyFillTheRest() throws InterruptedException {
@@ -117,6 +132,7 @@ public class RandomPolygonGen extends JComponent implements Runnable{
             box.width = 30;
             box.height = 30;
             if(interrupted) {
+                cleanup();
                 return;
             }
 
@@ -125,6 +141,7 @@ public class RandomPolygonGen extends JComponent implements Runnable{
             for(int j = 0; j < expandTry * expandStep; j += expandStep) {
 //                System.out.println("Try " + j + " times");
                 if(interrupted) {
+                    cleanup();
                     return;
                 }
                 box.width += j;
@@ -166,11 +183,12 @@ public class RandomPolygonGen extends JComponent implements Runnable{
 //        this.setVisible(true);
 
         interrupted = false;
-        long beginTime = System.currentTimeMillis();
+        beginTime = System.currentTimeMillis();
 
         while(true) {
             if(interrupted) {
-                return;
+                cleanup();
+                break;
             }
             this.repaint();
             boolean result;
@@ -179,7 +197,8 @@ public class RandomPolygonGen extends JComponent implements Runnable{
             if(!result) {
                 for(int i = 0; i < 50; i++) {
                     if(interrupted) {
-                        return;
+                        cleanup();
+                        break;
                     }
                     this.repaint();
                     Random r = new Random(Double.doubleToLongBits(Math.random()));
@@ -198,7 +217,8 @@ public class RandomPolygonGen extends JComponent implements Runnable{
                 try {
                     awesomelyFillTheRest();
                     if(interrupted) {
-                        return;
+                        cleanup();
+                        break;
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -206,10 +226,97 @@ public class RandomPolygonGen extends JComponent implements Runnable{
                 break;
             }
         }
+        if(!interrupted) {
+            synchronized (done) {
+                done.notify();
+            }
+        }
         long timeUsedMillis = System.currentTimeMillis() - beginTime;
         System.out.format("%ds used\n", timeUsedMillis/1000);
         System.out.format("Coverage Ratio: %.2f%%\n", container.getCoverageRatio() * 100);
     }
+
+    /**
+     * @author sunlike
+     * @param p
+     * @return
+     */
+    private String getXmlContent(ExtendedPolygon p)
+    {
+        String strXmlContent = "  <Polygon>\n";
+        strXmlContent+="    <Edges>"+p.npoints+"</Edges>\n";
+        strXmlContent+="    <Points>\n";
+        for(Point pt : p.getVertexPoints())
+        {
+            strXmlContent+="      <Point>\n";
+            strXmlContent+="        <X>"+pt.getX()+"</X>\n";
+            strXmlContent+="        <Y>"+pt.getY()+"</Y>\n";
+            strXmlContent+="      </Point>\n";
+        }
+
+        strXmlContent+="    </Points>\n";
+        strXmlContent+= "   </Polygon>\n";
+        return strXmlContent;
+    }
+
+
+    /**
+     * @author sunlike
+     */
+    public  void saveToXmlFormatFile()
+    {
+        ArrayList<ExtendedPolygon>[] listOfPolygon = container.getPolygonsInside();
+        ArrayList<String> xmlContentArray = new ArrayList<String>();
+        String strXmlHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        String strBeginXmlContent = "<TPolygons>\n";
+
+        String strListBegin = " <Polygons>";
+        xmlContentArray.add(strXmlHeader);
+        xmlContentArray.add(strBeginXmlContent);
+        xmlContentArray.add(strListBegin);
+
+        // 添加容器到输出列表
+        ExtendedPolygon outBounder = new ExtendedPolygon();
+        outBounder.addPoint(container.x,container.y);
+        outBounder.addPoint(container.x,container.height+container.y);
+        outBounder.addPoint(container.width+container.x,container.height+container.y);
+        outBounder.addPoint(container.width+container.x,container.y);
+
+        String strXmlContent = getXmlContent(outBounder);
+        xmlContentArray.add(strXmlContent);
+
+        for(ArrayList<ExtendedPolygon>  l : listOfPolygon)
+        {
+            for(ExtendedPolygon p : l)
+            {
+                strXmlContent = getXmlContent(p);
+                xmlContentArray.add(strXmlContent);
+            }
+
+        }
+        String strListEnd = " </Polygons>\n";
+        String strEndXmlContent = "</TPolygons>";
+        xmlContentArray.add(strListEnd);
+        xmlContentArray.add(strEndXmlContent);
+
+        try
+        {
+
+            FileWriter fw  = new FileWriter("polygon.xml");
+            for(String str : xmlContentArray)
+            {
+                System.out.print(str);
+                fw.write(str);
+            }
+            fw.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+
+        }
+    }
+
 
     public double getMinCoverageRatio() {
         return minCoverageRatio;
@@ -257,6 +364,34 @@ public class RandomPolygonGen extends JComponent implements Runnable{
 
     public void setMaxEdgeNum(int maxEdgeNum) {
         this.maxEdgeNum = maxEdgeNum;
+    }
+
+    public int getContainerWidth() {
+        return containerWidth;
+    }
+
+    public void setContainerWidth(int containerWidth) {
+        this.containerWidth = containerWidth;
+    }
+
+    public int getContainerHeight() {
+        return containerHeight;
+    }
+
+    public void setContainerHeight(int containerHeight) {
+        this.containerHeight = containerHeight;
+    }
+
+    public int getIterCount() {
+        return iterCount;
+    }
+
+    public void setIterCount(int iterCount) {
+        this.iterCount = iterCount;
+    }
+
+    public Object getDone() {
+        return done;
     }
 
     public boolean isInterrupted() {

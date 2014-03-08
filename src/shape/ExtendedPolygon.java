@@ -151,4 +151,20 @@ public class ExtendedPolygon extends Polygon {
     public Point getCircleCenter() {
         return this.circleCenter;
     }
+
+    /**
+     * @author sunlike
+     * 获取多边形的顶点坐标
+     * @return 多边形的顶点坐标
+     */
+    public Vector<Point> getVertexPoints()
+    {
+        Vector<Point> points = new Vector<Point>();
+
+        for(int i = 0 ; i < this.npoints; ++i)
+        {
+            points.add(new Point(this.xpoints[i],this.ypoints[i]));
+        }
+        return points;
+    }
 }

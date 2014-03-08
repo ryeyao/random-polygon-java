@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9f49a65-7734-4833-b653-4ee738a0903d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/MainView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/SettingComponent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/nttcad.properties" />
-      <change type="DELETED" beforePath="D:\dev\workspace\random-polygon-java\src\test.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shape/RectangleContainer.java" afterPath="$PROJECT_DIR$/src/shape/RectangleContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jpct.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jpct.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ui/Main.java" />
+      <change type="DELETED" beforePath="D:\dev\workspace\random-polygon-java\src\Main.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\dev\workspace\random-polygon-java\src\nttcad.properties" afterPath="" />
+      <change type="DELETED" beforePath="D:\dev\workspace\random-polygon-java\src\view\MainView.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\dev\workspace\random-polygon-java\src\view\SettingComponent.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shape/ExtendedPolygon.java" afterPath="$PROJECT_DIR$/src/shape/ExtendedPolygon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\dev\workspace\random-polygon-java\src\RandomPolygonGen.java" afterPath="$PROJECT_DIR$/src/view/RandomPolygonGen.java" />
+      <change type="MOVED" beforePath="D:\dev\workspace\random-polygon-java\src\view\RandomPolygonGen.java" afterPath="$PROJECT_DIR$/src/ui/RandomPolygonGen.java" />
     </list>
     <ignored path="random-polygon-java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,6 +21,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -30,7 +35,37 @@
   <component name="DebuggerManager">
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/Main.java" line="10" class="Main.java" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/ui/Main.java" line="12" class="Main.java" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java" line="189" class="view.RandomPolygonGen" package="view">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/ui/Main.java" line="263" class="Main$8" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -91,117 +126,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RandomPolygonGen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/RandomPolygonGen.java">
+      <file leaf-file-name="RandomPolygonGen.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="4" selection-start="5488" selection-end="5488" vertical-scroll-proportion="0.0" vertical-offset="3211" max-vertical-offset="5263">
+            <state line="294" column="0" selection-start="10062" selection-end="10062" vertical-scroll-proportion="0.36190477" vertical-offset="5396" max-vertical-offset="7372">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7307#7308#0" expanded="true" />
-                <element signature="e#7346#7347#0" expanded="true" />
-                <element signature="e#7410#7411#0" expanded="true" />
-                <element signature="e#7466#7467#0" expanded="true" />
-                <element signature="e#7495#7496#0" expanded="true" />
-                <element signature="e#7523#7524#0" expanded="true" />
-                <element signature="e#7562#7563#0" expanded="true" />
-                <element signature="e#7596#7597#0" expanded="true" />
-                <element signature="e#7625#7626#0" expanded="true" />
-                <element signature="e#7653#7654#0" expanded="true" />
-                <element signature="e#7692#7693#0" expanded="true" />
-                <element signature="e#7726#7727#0" expanded="true" />
-                <element signature="e#7759#7760#0" expanded="true" />
-                <element signature="e#7791#7792#0" expanded="true" />
-                <element signature="e#7838#7839#0" expanded="true" />
-                <element signature="e#7880#7881#0" expanded="true" />
-                <element signature="e#7913#7914#0" expanded="true" />
-                <element signature="e#7945#7946#0" expanded="true" />
-                <element signature="e#7992#7993#0" expanded="true" />
-                <element signature="e#8034#8035#0" expanded="true" />
-                <element signature="e#8068#8069#0" expanded="true" />
-                <element signature="e#8101#8102#0" expanded="true" />
-                <element signature="e#8150#8151#0" expanded="true" />
-                <element signature="e#8194#8195#0" expanded="true" />
-                <element signature="e#8232#8233#0" expanded="true" />
-                <element signature="e#8266#8267#0" expanded="true" />
-                <element signature="e#8321#8322#0" expanded="true" />
-                <element signature="e#8367#8368#0" expanded="true" />
+                <element signature="e#11491#11492#0" expanded="true" />
+                <element signature="e#11535#11536#0" expanded="true" />
+                <element signature="e#11573#11574#0" expanded="true" />
+                <element signature="e#11610#11611#0" expanded="true" />
+                <element signature="e#11667#11668#0" expanded="true" />
+                <element signature="e#11719#11720#0" expanded="true" />
+                <element signature="e#11758#11759#0" expanded="true" />
+                <element signature="e#11796#11797#0" expanded="true" />
+                <element signature="e#11855#11856#0" expanded="true" />
+                <element signature="e#11909#11910#0" expanded="true" />
+                <element signature="e#11942#11943#0" expanded="true" />
+                <element signature="e#11974#11975#0" expanded="true" />
+                <element signature="e#12021#12022#0" expanded="true" />
+                <element signature="e#12063#12064#0" expanded="true" />
+                <element signature="e#12094#12095#0" expanded="true" />
+                <element signature="e#12121#12122#0" expanded="true" />
+                <element signature="e#12248#12249#0" expanded="true" />
+                <element signature="e#12294#12295#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingComponent.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/SettingComponent.java">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="47" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
+            <state line="221" column="65" selection-start="9500" selection-end="9500" vertical-scroll-proportion="0.0" vertical-offset="4447" max-vertical-offset="6935">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3250#3589#0" expanded="true" />
+                <element signature="e#3578#3579#0" expanded="true" />
+                <element signature="e#4085#4761#0" expanded="true" />
+                <element signature="e#4750#4751#0" expanded="true" />
+                <element signature="e#5262#5937#0" expanded="true" />
+                <element signature="e#5926#5927#0" expanded="true" />
+                <element signature="e#6522#6880#0" expanded="true" />
+                <element signature="e#6869#6870#0" expanded="true" />
+                <element signature="e#7427#7776#0" expanded="true" />
+                <element signature="e#7765#7766#0" expanded="true" />
+                <element signature="e#8331#8682#0" expanded="true" />
+                <element signature="e#8671#8672#0" expanded="true" />
+                <element signature="e#9187#9524#0" expanded="true" />
+                <element signature="e#9513#9514#0" expanded="true" />
+                <element signature="e#10185#10892#0" expanded="true" />
+                <element signature="e#10869#10870#0" expanded="true" />
+                <element signature="e#14104#14368#0" expanded="true" />
+                <element signature="e#14357#14358#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="759" selection-end="759" vertical-scroll-proportion="0.28373015" vertical-offset="503" max-vertical-offset="1577">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RectangleContainer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shape/RectangleContainer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="4" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="2774">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nttcad.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/nttcad.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="171">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtendedPolygon.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3040">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtendedPolygonBuilder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="56" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.0" vertical-offset="1596" max-vertical-offset="2812">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VectorComparator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/VectorComparator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="55" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="1776" max-vertical-offset="2280">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -228,7 +206,6 @@
         <option value="$PROJECT_DIR$/src/RandomPolygon.java" />
         <option value="$PROJECT_DIR$/src/shape/Vector2D.java" />
         <option value="$PROJECT_DIR$/src/CollisionDemoSoftware.java" />
-        <option value="$PROJECT_DIR$/src/shape/ExtendedPolygon.java" />
         <option value="$PROJECT_DIR$/src/test.java" />
         <option value="$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java" />
         <option value="$PROJECT_DIR$/src/util/VectorComparator.java" />
@@ -237,12 +214,19 @@
         <option value="$PROJECT_DIR$/src/view/DisplayPane.java" />
         <option value="$PROJECT_DIR$/src/RandomPolygonGen.java" />
         <option value="$PROJECT_DIR$/src/view/DisplayComponent.java" />
+        <option value="$PROJECT_DIR$/src/shape/ExtendedPolygon.java" />
         <option value="$PROJECT_DIR$/src/view/SettingComponent.java" />
+        <option value="$PROJECT_DIR$/src/view/MainView.form" />
         <option value="$PROJECT_DIR$/src/view/MainView.java" />
+        <option value="$PROJECT_DIR$/src/Main.form" />
         <option value="$PROJECT_DIR$/src/view/RandomPolygonGen.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/ui/RandomPolygonGen.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -310,22 +294,8 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="random-polygon-java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="random-polygon-java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -376,7 +346,7 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="diff" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="SearchEverywhereHistory" value="&#10;." />
@@ -392,6 +362,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -418,7 +389,7 @@
     </configuration>
     <configuration default="false" name="RandomPolygonGen" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="view.RandomPolygonGen" />
+      <option name="MAIN_CLASS_NAME" value="ui.RandomPolygonGen" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -464,7 +435,7 @@
     </configuration>
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="ui.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -687,34 +658,35 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15508886" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3975364" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32698768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.110662356" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298731" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39677048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298731" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3252595" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24765626" sideWeight="0.6163595" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38297874" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17285945" sideWeight="0.6163595" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3644752" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -744,6 +716,94 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="0" selection-start="5555" selection-end="5555" vertical-scroll-proportion="0.0" vertical-offset="3135" max-vertical-offset="6840">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11491#11492#0" expanded="true" />
+            <element signature="e#11535#11536#0" expanded="true" />
+            <element signature="e#11573#11574#0" expanded="true" />
+            <element signature="e#11610#11611#0" expanded="true" />
+            <element signature="e#11667#11668#0" expanded="true" />
+            <element signature="e#11719#11720#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11796#11797#0" expanded="true" />
+            <element signature="e#11855#11856#0" expanded="true" />
+            <element signature="e#11909#11910#0" expanded="true" />
+            <element signature="e#11942#11943#0" expanded="true" />
+            <element signature="e#11974#11975#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12063#12064#0" expanded="true" />
+            <element signature="e#12094#12095#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+            <element signature="e#12294#12295#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="3534">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3250#3589#0" expanded="true" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#4085#4761#0" expanded="true" />
+            <element signature="e#4750#4751#0" expanded="true" />
+            <element signature="e#5262#5937#0" expanded="true" />
+            <element signature="e#5926#5927#0" expanded="true" />
+            <element signature="e#6522#6880#0" expanded="true" />
+            <element signature="e#6869#6870#0" expanded="true" />
+            <element signature="e#7427#7776#0" expanded="true" />
+            <element signature="e#7765#7766#0" expanded="true" />
+            <element signature="e#8331#8682#0" expanded="true" />
+            <element signature="e#8671#8672#0" expanded="true" />
+            <element signature="e#9187#9524#0" expanded="true" />
+            <element signature="e#9513#9514#0" expanded="true" />
+            <element signature="e#10185#10892#0" expanded="true" />
+            <element signature="e#10869#10870#0" expanded="true" />
+            <element signature="e#14104#14368#0" expanded="true" />
+            <element signature="e#14357#14358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="47" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="2451">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3250#3589#0" expanded="true" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#4085#4761#0" expanded="true" />
+            <element signature="e#4750#4751#0" expanded="true" />
+            <element signature="e#5262#5937#0" expanded="true" />
+            <element signature="e#5926#5927#0" expanded="true" />
+            <element signature="e#6522#6880#0" expanded="true" />
+            <element signature="e#6869#6870#0" expanded="true" />
+            <element signature="e#7427#7776#0" expanded="true" />
+            <element signature="e#7765#7766#0" expanded="true" />
+            <element signature="e#8331#8682#0" expanded="true" />
+            <element signature="e#8671#8672#0" expanded="true" />
+            <element signature="e#9187#9524#0" expanded="true" />
+            <element signature="e#9513#9514#0" expanded="true" />
+            <element signature="e#10185#10892#0" expanded="true" />
+            <element signature="e#10869#10870#0" expanded="true" />
+            <element signature="e#14104#14368#0" expanded="true" />
+            <element signature="e#14357#14358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/VectorComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="55" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="988" max-vertical-offset="2356">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/RectangleContainer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="123" column="0" selection-start="3988" selection-end="3988" vertical-scroll-proportion="0.0" vertical-offset="2337" max-vertical-offset="2945">
@@ -754,7 +814,11 @@
     <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3040">
-          <folding />
+          <folding>
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4247#4254#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -772,56 +836,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RandomPolygonGen.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="152" column="9" selection-start="5594" selection-end="5594" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3591">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7346#7347#0" expanded="true" />
-            <element signature="e#7410#7411#0" expanded="true" />
-            <element signature="e#7466#7467#0" expanded="true" />
-            <element signature="e#7495#7496#0" expanded="true" />
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="e#7562#7563#0" expanded="true" />
-            <element signature="e#7596#7597#0" expanded="true" />
-            <element signature="e#7625#7626#0" expanded="true" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7692#7693#0" expanded="true" />
-            <element signature="e#7726#7727#0" expanded="true" />
-            <element signature="e#7759#7760#0" expanded="true" />
-            <element signature="e#7791#7792#0" expanded="true" />
-            <element signature="e#7838#7839#0" expanded="true" />
-            <element signature="e#7880#7881#0" expanded="true" />
-            <element signature="e#7913#7914#0" expanded="true" />
-            <element signature="e#7945#7946#0" expanded="true" />
-            <element signature="e#7992#7993#0" expanded="true" />
-            <element signature="e#8034#8035#0" expanded="true" />
-            <element signature="e#8068#8069#0" expanded="true" />
-            <element signature="e#8101#8102#0" expanded="true" />
-            <element signature="e#8150#8151#0" expanded="true" />
-            <element signature="e#8194#8195#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8266#8267#0" expanded="true" />
-            <element signature="e#8321#8322#0" expanded="true" />
-            <element signature="e#8367#8368#0" expanded="true" />
+            <element signature="e#11491#11492#0" expanded="true" />
+            <element signature="e#11535#11536#0" expanded="true" />
+            <element signature="e#11573#11574#0" expanded="true" />
+            <element signature="e#11610#11611#0" expanded="true" />
+            <element signature="e#11667#11668#0" expanded="true" />
+            <element signature="e#11719#11720#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11796#11797#0" expanded="true" />
+            <element signature="e#11855#11856#0" expanded="true" />
+            <element signature="e#11909#11910#0" expanded="true" />
+            <element signature="e#11942#11943#0" expanded="true" />
+            <element signature="e#11974#11975#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12063#12064#0" expanded="true" />
+            <element signature="e#12094#12095#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+            <element signature="e#12294#12295#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="52" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="893">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3250#3589#0" expanded="true" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#4085#4761#0" expanded="true" />
+            <element signature="e#4750#4751#0" expanded="true" />
+            <element signature="e#5262#5937#0" expanded="true" />
+            <element signature="e#5926#5927#0" expanded="true" />
+            <element signature="e#6522#6880#0" expanded="true" />
+            <element signature="e#6869#6870#0" expanded="true" />
+            <element signature="e#7427#7776#0" expanded="true" />
+            <element signature="e#7765#7766#0" expanded="true" />
+            <element signature="e#8331#8682#0" expanded="true" />
+            <element signature="e#8671#8672#0" expanded="true" />
+            <element signature="e#9187#9524#0" expanded="true" />
+            <element signature="e#9513#9514#0" expanded="true" />
+            <element signature="e#10185#10892#0" expanded="true" />
+            <element signature="e#10869#10870#0" expanded="true" />
+            <element signature="e#14104#14368#0" expanded="true" />
+            <element signature="e#14357#14358#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nttcad.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="171">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,7 +900,11 @@
     <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3040">
-          <folding />
+          <folding>
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4247#4254#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -853,39 +922,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RandomPolygonGen.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="37" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3876">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7346#7347#0" expanded="true" />
-            <element signature="e#7410#7411#0" expanded="true" />
-            <element signature="e#7466#7467#0" expanded="true" />
-            <element signature="e#7495#7496#0" expanded="true" />
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="e#7562#7563#0" expanded="true" />
-            <element signature="e#7596#7597#0" expanded="true" />
-            <element signature="e#7625#7626#0" expanded="true" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7692#7693#0" expanded="true" />
-            <element signature="e#7726#7727#0" expanded="true" />
-            <element signature="e#7759#7760#0" expanded="true" />
-            <element signature="e#7791#7792#0" expanded="true" />
-            <element signature="e#7838#7839#0" expanded="true" />
-            <element signature="e#7880#7881#0" expanded="true" />
-            <element signature="e#7913#7914#0" expanded="true" />
-            <element signature="e#7945#7946#0" expanded="true" />
-            <element signature="e#7992#7993#0" expanded="true" />
-            <element signature="e#8034#8035#0" expanded="true" />
-            <element signature="e#8068#8069#0" expanded="true" />
-            <element signature="e#8101#8102#0" expanded="true" />
-            <element signature="e#8150#8151#0" expanded="true" />
-            <element signature="e#8194#8195#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8266#8267#0" expanded="true" />
-            <element signature="e#8321#8322#0" expanded="true" />
-            <element signature="e#8367#8368#0" expanded="true" />
+            <element signature="e#11491#11492#0" expanded="true" />
+            <element signature="e#11535#11536#0" expanded="true" />
+            <element signature="e#11573#11574#0" expanded="true" />
+            <element signature="e#11610#11611#0" expanded="true" />
+            <element signature="e#11667#11668#0" expanded="true" />
+            <element signature="e#11719#11720#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11796#11797#0" expanded="true" />
+            <element signature="e#11855#11856#0" expanded="true" />
+            <element signature="e#11909#11910#0" expanded="true" />
+            <element signature="e#11942#11943#0" expanded="true" />
+            <element signature="e#11974#11975#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12063#12064#0" expanded="true" />
+            <element signature="e#12094#12095#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+            <element signature="e#12294#12295#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -900,7 +959,11 @@
     <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="142" column="37" selection-start="3867" selection-end="3867" vertical-scroll-proportion="0.0" vertical-offset="2698" max-vertical-offset="2774">
-          <folding />
+          <folding>
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4247#4254#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -918,39 +981,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RandomPolygonGen.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="136" column="21" selection-start="5220" selection-end="5220" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="6384">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7346#7347#0" expanded="true" />
-            <element signature="e#7410#7411#0" expanded="true" />
-            <element signature="e#7466#7467#0" expanded="true" />
-            <element signature="e#7495#7496#0" expanded="true" />
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="e#7562#7563#0" expanded="true" />
-            <element signature="e#7596#7597#0" expanded="true" />
-            <element signature="e#7625#7626#0" expanded="true" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7692#7693#0" expanded="true" />
-            <element signature="e#7726#7727#0" expanded="true" />
-            <element signature="e#7759#7760#0" expanded="true" />
-            <element signature="e#7791#7792#0" expanded="true" />
-            <element signature="e#7838#7839#0" expanded="true" />
-            <element signature="e#7880#7881#0" expanded="true" />
-            <element signature="e#7913#7914#0" expanded="true" />
-            <element signature="e#7945#7946#0" expanded="true" />
-            <element signature="e#7992#7993#0" expanded="true" />
-            <element signature="e#8034#8035#0" expanded="true" />
-            <element signature="e#8068#8069#0" expanded="true" />
-            <element signature="e#8101#8102#0" expanded="true" />
-            <element signature="e#8150#8151#0" expanded="true" />
-            <element signature="e#8194#8195#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8266#8267#0" expanded="true" />
-            <element signature="e#8321#8322#0" expanded="true" />
-            <element signature="e#8367#8368#0" expanded="true" />
+            <element signature="e#11491#11492#0" expanded="true" />
+            <element signature="e#11535#11536#0" expanded="true" />
+            <element signature="e#11573#11574#0" expanded="true" />
+            <element signature="e#11610#11611#0" expanded="true" />
+            <element signature="e#11667#11668#0" expanded="true" />
+            <element signature="e#11719#11720#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11796#11797#0" expanded="true" />
+            <element signature="e#11855#11856#0" expanded="true" />
+            <element signature="e#11909#11910#0" expanded="true" />
+            <element signature="e#11942#11943#0" expanded="true" />
+            <element signature="e#11974#11975#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12063#12064#0" expanded="true" />
+            <element signature="e#12094#12095#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+            <element signature="e#12294#12295#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -965,7 +1018,11 @@
     <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="15" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="3040">
-          <folding />
+          <folding>
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4247#4254#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -983,39 +1040,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RandomPolygonGen.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="136" column="21" selection-start="5220" selection-end="5220" vertical-scroll-proportion="0.0" vertical-offset="2584" max-vertical-offset="6384">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7346#7347#0" expanded="true" />
-            <element signature="e#7410#7411#0" expanded="true" />
-            <element signature="e#7466#7467#0" expanded="true" />
-            <element signature="e#7495#7496#0" expanded="true" />
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="e#7562#7563#0" expanded="true" />
-            <element signature="e#7596#7597#0" expanded="true" />
-            <element signature="e#7625#7626#0" expanded="true" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7692#7693#0" expanded="true" />
-            <element signature="e#7726#7727#0" expanded="true" />
-            <element signature="e#7759#7760#0" expanded="true" />
-            <element signature="e#7791#7792#0" expanded="true" />
-            <element signature="e#7838#7839#0" expanded="true" />
-            <element signature="e#7880#7881#0" expanded="true" />
-            <element signature="e#7913#7914#0" expanded="true" />
-            <element signature="e#7945#7946#0" expanded="true" />
-            <element signature="e#7992#7993#0" expanded="true" />
-            <element signature="e#8034#8035#0" expanded="true" />
-            <element signature="e#8068#8069#0" expanded="true" />
-            <element signature="e#8101#8102#0" expanded="true" />
-            <element signature="e#8150#8151#0" expanded="true" />
-            <element signature="e#8194#8195#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8266#8267#0" expanded="true" />
-            <element signature="e#8321#8322#0" expanded="true" />
-            <element signature="e#8367#8368#0" expanded="true" />
+            <element signature="e#11491#11492#0" expanded="true" />
+            <element signature="e#11535#11536#0" expanded="true" />
+            <element signature="e#11573#11574#0" expanded="true" />
+            <element signature="e#11610#11611#0" expanded="true" />
+            <element signature="e#11667#11668#0" expanded="true" />
+            <element signature="e#11719#11720#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11796#11797#0" expanded="true" />
+            <element signature="e#11855#11856#0" expanded="true" />
+            <element signature="e#11909#11910#0" expanded="true" />
+            <element signature="e#11942#11943#0" expanded="true" />
+            <element signature="e#11974#11975#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12063#12064#0" expanded="true" />
+            <element signature="e#12094#12095#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+            <element signature="e#12294#12295#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1030,7 +1077,11 @@
     <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="15" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="3040">
-          <folding />
+          <folding>
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4247#4254#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,39 +1106,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RandomPolygonGen.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="60" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7346#7347#0" expanded="true" />
-            <element signature="e#7410#7411#0" expanded="true" />
-            <element signature="e#7466#7467#0" expanded="true" />
-            <element signature="e#7495#7496#0" expanded="true" />
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="e#7562#7563#0" expanded="true" />
-            <element signature="e#7596#7597#0" expanded="true" />
-            <element signature="e#7625#7626#0" expanded="true" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7692#7693#0" expanded="true" />
-            <element signature="e#7726#7727#0" expanded="true" />
-            <element signature="e#7759#7760#0" expanded="true" />
-            <element signature="e#7791#7792#0" expanded="true" />
-            <element signature="e#7838#7839#0" expanded="true" />
-            <element signature="e#7880#7881#0" expanded="true" />
-            <element signature="e#7913#7914#0" expanded="true" />
-            <element signature="e#7945#7946#0" expanded="true" />
-            <element signature="e#7992#7993#0" expanded="true" />
-            <element signature="e#8034#8035#0" expanded="true" />
-            <element signature="e#8068#8069#0" expanded="true" />
-            <element signature="e#8101#8102#0" expanded="true" />
-            <element signature="e#8150#8151#0" expanded="true" />
-            <element signature="e#8194#8195#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8266#8267#0" expanded="true" />
-            <element signature="e#8321#8322#0" expanded="true" />
-            <element signature="e#8367#8368#0" expanded="true" />
+            <element signature="e#11491#11492#0" expanded="true" />
+            <element signature="e#11535#11536#0" expanded="true" />
+            <element signature="e#11573#11574#0" expanded="true" />
+            <element signature="e#11610#11611#0" expanded="true" />
+            <element signature="e#11667#11668#0" expanded="true" />
+            <element signature="e#11719#11720#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11796#11797#0" expanded="true" />
+            <element signature="e#11855#11856#0" expanded="true" />
+            <element signature="e#11909#11910#0" expanded="true" />
+            <element signature="e#11942#11943#0" expanded="true" />
+            <element signature="e#11974#11975#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12063#12064#0" expanded="true" />
+            <element signature="e#12094#12095#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+            <element signature="e#12294#12295#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1102,7 +1143,11 @@
     <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="0" selection-start="2864" selection-end="2864" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+          <folding>
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4247#4254#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1133,43 +1178,6 @@
         <state line="6" column="13" selection-start="158" selection-end="158" vertical-scroll-proportion="0.11757426" vertical-offset="0" max-vertical-offset="808" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2774">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/VectorComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="55" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="1776" max-vertical-offset="2280">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="56" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.0" vertical-offset="1596" max-vertical-offset="2812">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nttcad.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/RectangleContainer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="4" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="2774">
@@ -1177,55 +1185,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RandomPolygonGen.java">
+    <entry file="file://$PROJECT_DIR$/src/util/VectorComparator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="4" selection-start="5488" selection-end="5488" vertical-scroll-proportion="0.0" vertical-offset="3211" max-vertical-offset="5263">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7346#7347#0" expanded="true" />
-            <element signature="e#7410#7411#0" expanded="true" />
-            <element signature="e#7466#7467#0" expanded="true" />
-            <element signature="e#7495#7496#0" expanded="true" />
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="e#7562#7563#0" expanded="true" />
-            <element signature="e#7596#7597#0" expanded="true" />
-            <element signature="e#7625#7626#0" expanded="true" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7692#7693#0" expanded="true" />
-            <element signature="e#7726#7727#0" expanded="true" />
-            <element signature="e#7759#7760#0" expanded="true" />
-            <element signature="e#7791#7792#0" expanded="true" />
-            <element signature="e#7838#7839#0" expanded="true" />
-            <element signature="e#7880#7881#0" expanded="true" />
-            <element signature="e#7913#7914#0" expanded="true" />
-            <element signature="e#7945#7946#0" expanded="true" />
-            <element signature="e#7992#7993#0" expanded="true" />
-            <element signature="e#8034#8035#0" expanded="true" />
-            <element signature="e#8068#8069#0" expanded="true" />
-            <element signature="e#8101#8102#0" expanded="true" />
-            <element signature="e#8150#8151#0" expanded="true" />
-            <element signature="e#8194#8195#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8266#8267#0" expanded="true" />
-            <element signature="e#8321#8322#0" expanded="true" />
-            <element signature="e#8367#8368#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SettingComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="47" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+        <state line="52" column="55" selection-start="1589" selection-end="1589" vertical-scroll-proportion="-0.14931238" vertical-offset="988" max-vertical-offset="2280">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="759" selection-end="759" vertical-scroll-proportion="0.28373015" vertical-offset="503" max-vertical-offset="1577">
+        <state line="166" column="8" selection-start="4392" selection-end="4392" vertical-scroll-proportion="0.62671906" vertical-offset="2607" max-vertical-offset="3116">
+          <folding>
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4247#4254#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/javax/swing/JSlider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1330" column="0" selection-start="43931" selection-end="43931" vertical-scroll-proportion="0.0" vertical-offset="23908" max-vertical-offset="27778">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="743" column="0" selection-start="27685" selection-end="27685" vertical-scroll-proportion="0.0" vertical-offset="13249" max-vertical-offset="38266">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shape/ExtendedPolygonBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="0" selection-start="3499" selection-end="3499" vertical-scroll-proportion="0.0" vertical-offset="1596" max-vertical-offset="2812">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/awt/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="15" selection-start="5485" selection-end="5485" vertical-scroll-proportion="0.33333334" vertical-offset="2200" max-vertical-offset="22610">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="221" column="65" selection-start="9500" selection-end="9500" vertical-scroll-proportion="0.0" vertical-offset="4447" max-vertical-offset="6935">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3250#3589#0" expanded="true" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#4085#4761#0" expanded="true" />
+            <element signature="e#4750#4751#0" expanded="true" />
+            <element signature="e#5262#5937#0" expanded="true" />
+            <element signature="e#5926#5927#0" expanded="true" />
+            <element signature="e#6522#6880#0" expanded="true" />
+            <element signature="e#6869#6870#0" expanded="true" />
+            <element signature="e#7427#7776#0" expanded="true" />
+            <element signature="e#7765#7766#0" expanded="true" />
+            <element signature="e#8331#8682#0" expanded="true" />
+            <element signature="e#8671#8672#0" expanded="true" />
+            <element signature="e#9187#9524#0" expanded="true" />
+            <element signature="e#9513#9514#0" expanded="true" />
+            <element signature="e#10185#10892#0" expanded="true" />
+            <element signature="e#10869#10870#0" expanded="true" />
+            <element signature="e#14104#14368#0" expanded="true" />
+            <element signature="e#14357#14358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/RandomPolygonGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="294" column="0" selection-start="10062" selection-end="10062" vertical-scroll-proportion="0.36190477" vertical-offset="5396" max-vertical-offset="7372">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11491#11492#0" expanded="true" />
+            <element signature="e#11535#11536#0" expanded="true" />
+            <element signature="e#11573#11574#0" expanded="true" />
+            <element signature="e#11610#11611#0" expanded="true" />
+            <element signature="e#11667#11668#0" expanded="true" />
+            <element signature="e#11719#11720#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11796#11797#0" expanded="true" />
+            <element signature="e#11855#11856#0" expanded="true" />
+            <element signature="e#11909#11910#0" expanded="true" />
+            <element signature="e#11942#11943#0" expanded="true" />
+            <element signature="e#11974#11975#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12063#12064#0" expanded="true" />
+            <element signature="e#12094#12095#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
+            <element signature="e#12248#12249#0" expanded="true" />
+            <element signature="e#12294#12295#0" expanded="true" />
           </folding>
         </state>
       </provider>
