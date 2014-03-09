@@ -249,6 +249,7 @@ public class Main {
                                 saveButton.setEnabled(true);
                                 enableSliders();
                                 startButton.setText("Start");
+                                pressed = false;
                             } catch (InterruptedException e1) {
                                 e1.printStackTrace();
                             }
@@ -277,7 +278,7 @@ public class Main {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayComponent.saveToXmlFormatFile();
+                displayComponent.saveAsXML();
             }
         });
         saveButton.setEnabled(false);
@@ -334,7 +335,7 @@ public class Main {
         mainView = new JFrame();
         mainView.setTitle("随机多边形填充v1.0");
         mainView.setLocation(130, 150);
-        mainView.setSize(1030, 545);
+        mainView.setSize(1040, 545);
         mainView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainView.setContentPane(mainPane);
 
