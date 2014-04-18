@@ -99,7 +99,7 @@ public class ExtendedPolygonBuilder {
 
         Point center = new Point();
         center.x = box.x + rand.nextInt(box.width);
-        center.y = box.x + rand.nextInt(box.height);
+        center.y = box.y + rand.nextInt(box.height);
         int radius = minRadius + rand.nextInt(maxRadius - minRadius + 1);
         double minTriangleArea = 0.05 * Math.PI * radius * radius;
 
