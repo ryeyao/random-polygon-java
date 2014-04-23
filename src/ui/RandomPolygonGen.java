@@ -27,6 +27,9 @@ public class RandomPolygonGen extends JComponent implements Runnable{
     private int maxEdgeNum;
     private int minRadius;
     private int maxRadius;
+    private int minAngle;
+    private int maxAngle;
+
     private int stepX;
     private int stepY;
     private double minCoverageRatio;
@@ -50,6 +53,9 @@ public class RandomPolygonGen extends JComponent implements Runnable{
         maxEdgeNum = 5;
         minRadius = 30;
         maxRadius = 80;
+        minAngle = 10;
+        maxAngle = 160;
+
         stepX = -1;
         stepY = 1;
         minCoverageRatio = 0.50;
@@ -356,6 +362,21 @@ public class RandomPolygonGen extends JComponent implements Runnable{
     public void setMinRadius(int minRadius) {
         this.minRadius = minRadius;
     }
+
+    public void setMinAngle(int minAngle) {
+        this.minAngle = minAngle;
+    }
+    public void setMaxAngle(int maxAngle) {
+        this.maxAngle = maxAngle;
+    }
+
+    public int getMinAngle() {
+        return minAngle;
+    }
+    public int getMaxAngle() {
+        return maxAngle;
+    }
+
 
     public int getMaxEdgeNum() {
         return maxEdgeNum;
