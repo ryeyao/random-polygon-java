@@ -1,7 +1,11 @@
 package util;
 import javax.swing.*;
 import java.awt.*;
-/**
+import java.util.Vector;
+import java.util.ArrayList;
+
+
+/*
  * Created by Sunlike on 2014/4/23.
  */
 public class angle_helper {
@@ -42,4 +46,25 @@ public class angle_helper {
         angle = Math.acos(cosValue)* 180/Math.PI;
         return angle;
     }
+
+    /**
+     * points are clockwise
+     * @param points
+     * @return
+     */
+    public static ArrayList<Double> getAngleFromPoints(ArrayList<Point> points)
+    {
+        ArrayList<Double> angleList = new ArrayList<Double>();
+       ArrayList<Point> tmpPoints = points;
+       tmpPoints.add(0,points.get(points.size()-1));
+       tmpPoints.add(tmpPoints.size()-1,points.get(0));
+       int size = tmpPoints.size();
+       for(int i = 1; i < size -1; ++i)
+       {
+           double angle = getAngle(tmpPoints.get(i), tmpPoints.get(i - 1), tmpPoints.get(i + 1));
+           angleList.add(angle);
+       }
+        return angleList;
+    }
+
 }

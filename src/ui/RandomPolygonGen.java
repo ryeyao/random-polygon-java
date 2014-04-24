@@ -77,22 +77,22 @@ public class RandomPolygonGen extends JComponent implements Runnable{
         beginTime = 0;
     }
 
-    public static ExtendedPolygon randPolygonWithinBox(Rectangle box, int maxEdgeNum) {
+    public static ExtendedPolygon randPolygonWithinBox(Rectangle box, int maxEdgeNum,double minAngle,double maxAngle) {
         Random rand = new Random(Double.doubleToLongBits(Math.random()));
         int edgeNum = 3 + rand.nextInt(maxEdgeNum - 2);
 
         ExtendedPolygonBuilder pgBuilder = new ExtendedPolygonBuilder();
 
-        return pgBuilder.buildPolygon(box, edgeNum);
+        return pgBuilder.buildPolygon(box, edgeNum,minAngle,maxAngle);
     }
 
-    public static ExtendedPolygon randPolygon(RectangleContainer box, int maxEdgeNum, int minRadius, int maxRadius) {
+    public static ExtendedPolygon randPolygon(RectangleContainer box, int maxEdgeNum, int minRadius, int maxRadius,double minAngle,double maxAngle) {
         Random rand = new Random(Double.doubleToLongBits(Math.random()));
         int edgeNum = 3 + rand.nextInt(maxEdgeNum - 2);
 
         ExtendedPolygonBuilder pgBuilder = new ExtendedPolygonBuilder(box);
 
-        return pgBuilder.buildPolygon(edgeNum, minRadius, maxRadius);
+        return pgBuilder.buildPolygon(edgeNum, minRadius, maxRadius,minAngle,maxAngle);
     }
 
     @Override
@@ -164,7 +164,7 @@ public class RandomPolygonGen extends JComponent implements Runnable{
 //                tmpPoly.addPoint(box.x + box.width, box.y);
 //                tmpPoly.addPoint(box.x + box.width, box.y + box.height);
 //                tmpPoly.addPoint(box.x, box.y + box.height);
-                tmpPoly = randPolygonWithinBox(box, 5);
+                tmpPoly = randPolygonWithinBox(box, 5,(double)minAngle,(double)maxAngle);
                 success = container.safePut(tmpPoly);
 
                 this.repaint();
@@ -198,7 +198,7 @@ public class RandomPolygonGen extends JComponent implements Runnable{
             }
             this.repaint();
             boolean result;
-            ExtendedPolygon polygon = RandomPolygonGen.randPolygon(container, maxEdgeNum, minRadius, maxRadius);
+            ExtendedPolygon polygon = RandomPolygonGen.randPolygon(container, maxEdgeNum, minRadius, maxRadius,(double)minAngle,(double)maxAngle);
             result = container.safePut(polygon);
             if(!result) {
                 for(int i = 0; i < 20; i++) {
