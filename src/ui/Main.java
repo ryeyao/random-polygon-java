@@ -36,6 +36,17 @@ public class Main {
     private JSlider maxDiamSlider;
     private JLabel maxDiamSliderLabel;
     private JLabel maxDiamLabelValue;
+    
+    private JSlider minAngleSlider;
+    private JLabel minAngleSliderLabel;
+    private JLabel minAngleLabelValue;
+
+
+    private JSlider maxAngleSlider;
+    private JLabel maxAngleSliderLabel;
+    private JLabel maxAngleLabelValue;
+
+
 
     private JSlider minCoverageRatioSlider;
     private JLabel minCoverageRatioSliderLabel;
@@ -80,6 +91,9 @@ public class Main {
         maxEdgeNumSlider.setEnabled(false);
         minCoverageRatioSlider.setEnabled(false);
         minDiamSlider.setEnabled(false);
+        minAngleSlider.setEnabled(false);
+        maxAngleSlider.setEnabled(false);
+
     }
 
     private void enableSliders() {
@@ -91,6 +105,9 @@ public class Main {
         maxEdgeNumSlider.setEnabled(true);
         minCoverageRatioSlider.setEnabled(true);
         minDiamSlider.setEnabled(true);
+        minAngleSlider.setEnabled(true);
+        maxAngleSlider.setEnabled(true);
+
     }
 
     private void prepareComponents() {
@@ -154,6 +171,54 @@ public class Main {
                 displayComponent.setMaxRadius(slider.getValue() / 2);
             }
         });
+
+
+        // minAngle
+        minAngleSliderLabel = new JLabel("最小角度：" + displayComponent.getMinAngle(), JLabel.CENTER);
+        Hashtable masTableLabel = new Hashtable();
+        masTableLabel.put(1, new JLabel("1"));
+        masTableLabel.put(179, new JLabel("179"));
+        minAngleSlider = new JSlider(1, 179, displayComponent.getMinAngle());
+        minAngleSlider.setLabelTable(masTableLabel);
+        minAngleSlider.setPaintLabels(true);
+        minAngleSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                JSlider slider = (JSlider)e.getSource();
+                minAngleSliderLabel.setText("最小角度: " + String.valueOf(slider.getValue()));
+                if(slider.getValue() > maxDiamSlider.getValue()) {
+                    maxAngleSlider.setValue(slider.getValue());
+                    minAngleSliderLabel.setText("最大角度: " + String.valueOf(maxAngleSlider.getValue()));
+                    displayComponent.setMinAngle(maxAngleSlider.getValue());
+                }
+                displayComponent.setMinAngle(slider.getValue());
+            }
+        });
+
+
+        // maxAngle
+        maxAngleSliderLabel = new JLabel("最大角度：" + displayComponent.getMaxAngle() , JLabel.CENTER);
+        Hashtable maxasTableLabel = new Hashtable();
+        maxasTableLabel.put(1, new JLabel("1"));
+        maxasTableLabel.put(179, new JLabel("179"));
+        maxAngleSlider = new JSlider(1, 179, displayComponent.getMaxAngle());
+        maxAngleSlider.setLabelTable(maxasTableLabel);
+        maxAngleSlider.setPaintLabels(true);
+        maxAngleSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                JSlider slider = (JSlider)e.getSource();
+                maxAngleSliderLabel.setText("最大角度: " + String.valueOf(slider.getValue()));
+                if(slider.getValue() < minDiamSlider.getValue()) {
+                    minAngleSlider.setValue(slider.getValue());
+                    minAngleSliderLabel.setText("最小角度: " + String.valueOf(minAngleSlider.getValue()));
+                    displayComponent.setMinRadius(minAngleSlider.getValue());
+                }
+                displayComponent.setMaxAngle(slider.getValue());
+            }
+        });
+
+
 
         //minCoverageRatio
         minCoverageRatioSliderLabel = new JLabel("最小填充率：" + (int)(displayComponent.getMinCoverageRatio() * 100), JLabel.CENTER);
@@ -306,6 +371,12 @@ public class Main {
 
         settingComponent.add(maxDiamSliderLabel);
         settingComponent.add(maxDiamSlider);
+
+        settingComponent.add(minAngleSliderLabel);
+        settingComponent.add(minAngleSlider);
+
+        settingComponent.add(maxAngleSliderLabel);
+        settingComponent.add(maxAngleSlider);
 
         settingComponent.add(minCoverageRatioSliderLabel);
         settingComponent.add(minCoverageRatioSlider);
