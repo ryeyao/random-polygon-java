@@ -155,8 +155,9 @@ public class RandomPolygonGen extends JComponent implements Runnable{
                     cleanup();
                     return;
                 }
-                box.width += j;
-                box.height += j;
+                box.width += expandStep;
+                box.height += expandStep;
+
 
                 ExtendedPolygon tmpPoly;
 //                ExtendedPolygon tmpPoly = new ExtendedPolygon();
